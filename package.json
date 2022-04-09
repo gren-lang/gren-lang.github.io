@@ -1,0 +1,16 @@
+{
+  "name": "website",
+  "description": "The source of gren-lang.org.",
+  "private": true,
+  "scripts": {
+    "postinstall": "elm-tooling install",
+    "start": "elm-pages dev",
+    "build": "elm-pages build"
+  },
+  "devDependencies": {
+    "elm-optimize-level-2": "0.2.3",
+    "elm-pages": "2.1.10",
+    "elm-review": "^2.5.5",
+    "elm-tooling": "^1.4.0"
+  }
+}
