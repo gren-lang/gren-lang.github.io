@@ -1,4 +1,4 @@
-module Page.News exposing (Data, Model, Msg, page)
+module Page.News.Slug_ exposing (Data, Model, Msg, page)
 
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
@@ -6,8 +6,7 @@ import DataSource.File as File
 import DataSource.Glob as Glob
 import Head
 import Head.Seo as Seo
-import Html exposing (Html)
-import Html.Attributes as Attribute
+import OptimizedDecoder as Decode exposing (Decoder)
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
@@ -24,32 +23,40 @@ type alias Msg =
 
 
 type alias RouteParams =
-    {}
+    { slug : String }
 
 
 page : Page RouteParams Data
 page =
-    Page.single
+    Page.prerender
         { head = head
+        , routes = routes
         , data = data
         }
         |> Page.buildNoState { view = view }
 
 
-type alias Data =
-    List Article
-
-
-data : DataSource Data
-data =
+routes : DataSource (List RouteParams)
+routes =
     Glob.succeed (\prefix filename suffix -> prefix ++ filename ++ suffix)
         |> Glob.capture (Glob.literal "articles/")
         |> Glob.capture Glob.wildcard
         |> Glob.capture (Glob.literal ".md")
         |> Glob.toDataSource
         |> DataSource.map
-            (List.map (File.bodyWithFrontmatter Article.decoder))
+            (List.map (File.onlyFrontmatter routeParamDecoder))
         |> DataSource.resolve
+
+
+routeParamDecoder : Decoder RouteParams
+routeParamDecoder =
+    Decode.map RouteParams
+        (Decode.field "title" Decode.string)
+
+
+data : RouteParams -> DataSource Data
+data routeParams =
+    DataSource.succeed ()
 
 
 head :
@@ -72,26 +79,14 @@ head static =
         |> Seo.website
 
 
+type alias Data =
+    ()
+
+
 view :
     Maybe PageUrl
     -> Shared.Model
     -> StaticPayload Data RouteParams
-    -> View msg
+    -> View Msg
 view maybeUrl sharedModel static =
-    { title = "Gren - News"
-    , body =
-        [ Html.h1 []
-            [ Html.text "News" ]
-        , Html.ul []
-            (List.map viewArticle static.data)
-        ]
-    }
-
-
-viewArticle : Article -> Html msg
-viewArticle article =
-    Html.li []
-        [ Html.a
-            [ Attribute.href <| "/news/" ++ article.title ]
-            [ Html.text article.title ]
-        ]
+    View.placeholder "News.Slug_"
