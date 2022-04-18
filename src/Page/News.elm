@@ -42,11 +42,7 @@ type alias Data =
 
 data : DataSource Data
 data =
-    Glob.succeed (\prefix filename suffix -> prefix ++ filename ++ suffix)
-        |> Glob.capture (Glob.literal "articles/")
-        |> Glob.capture Glob.wildcard
-        |> Glob.capture (Glob.literal ".md")
-        |> Glob.toDataSource
+    Article.filePaths
         |> DataSource.map
             (List.map (File.bodyWithFrontmatter Article.decoder))
         |> DataSource.resolve

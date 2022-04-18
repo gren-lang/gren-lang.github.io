@@ -38,11 +38,7 @@ page =
 
 routes : DataSource (List RouteParams)
 routes =
-    Glob.succeed (\prefix filename suffix -> prefix ++ filename ++ suffix)
-        |> Glob.capture (Glob.literal "articles/")
-        |> Glob.capture Glob.wildcard
-        |> Glob.capture (Glob.literal ".md")
-        |> Glob.toDataSource
+    Article.filePaths
         |> DataSource.map
             (List.map (File.onlyFrontmatter routeParamDecoder))
         |> DataSource.resolve
@@ -56,7 +52,24 @@ routeParamDecoder =
 
 data : RouteParams -> DataSource Data
 data routeParams =
-    DataSource.succeed ()
+    Article.filePaths
+        |> DataSource.map
+            (List.map (File.bodyWithFrontmatter Article.decoder))
+        |> DataSource.resolve
+        |> DataSource.map
+            (List.filter (\article -> article.title == routeParams.slug))
+        |> DataSource.andThen
+            (\results ->
+                case List.head results of
+                    Just result ->
+                        DataSource.succeed result
+
+                    Nothing ->
+                        DataSource.fail <|
+                            "Could not find article with slug: "
+                                ++ routeParams.slug
+            )
+        |> DataSource.map Data
 
 
 head :
@@ -80,7 +93,7 @@ head static =
 
 
 type alias Data =
-    ()
+    { article : Article }
 
 
 view :
@@ -89,4 +102,4 @@ view :
     -> StaticPayload Data RouteParams
     -> View Msg
 view maybeUrl sharedModel static =
-    View.placeholder "News.Slug_"
+    View.placeholder static.data.article.body
