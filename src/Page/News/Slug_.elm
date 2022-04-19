@@ -3,9 +3,11 @@ module Page.News.Slug_ exposing (Data, Model, Msg, page)
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
 import DataSource.File as File
-import DataSource.Glob as Glob
 import Head
 import Head.Seo as Seo
+import Html
+import Markdown.Parser
+import Markdown.Renderer
 import OptimizedDecoder as Decode exposing (Decoder)
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
@@ -100,6 +102,19 @@ view :
     Maybe PageUrl
     -> Shared.Model
     -> StaticPayload Data RouteParams
-    -> View Msg
+    -> View msg
 view maybeUrl sharedModel static =
-    View.placeholder static.data.article.body
+    { title = static.data.article.title
+    , body =
+        case Markdown.Parser.parse static.data.article.body of
+            Ok markdown ->
+                case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
+                    Ok html ->
+                        html
+
+                    Err _ ->
+                        [ Html.text "Failed to render markdown" ]
+
+            Err _ ->
+                [ Html.text "Failed to parse markdown." ]
+    }
