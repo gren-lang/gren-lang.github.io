@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "elm-tooling install",
     "start": "elm-pages dev",
-    "build": "elm-pages build && cp dist/* docs/"
+    "build": "elm-pages build && cp -R dist/* docs/"
   },
   "devDependencies": {
     "elm-optimize-level-2": "0.2.3",
