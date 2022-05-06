@@ -1,4 +1,4 @@
-module Page.Index exposing (Data, Model, Msg, page)
+module Page.Learn exposing (Data, Model, Msg, page)
 
 import DataSource exposing (DataSource)
 import Head
@@ -69,6 +69,6 @@ view :
 view _ _ _ =
     { title = "Gren"
     , body =
-        [ Html.text "Index"
+        [ Html.text "Learn"
         ]
     }

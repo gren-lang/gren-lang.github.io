@@ -3,6 +3,7 @@ module Shared exposing (Data, Model, Msg(..), SharedMsg(..), template)
 import Browser.Navigation
 import DataSource
 import Html exposing (Html)
+import Html.Attributes as Attributes
 import Pages.Flags
 import Pages.PageUrl exposing (PageUrl)
 import Path exposing (Path)
@@ -95,6 +96,57 @@ view :
     -> View msg
     -> { body : Html msg, title : String }
 view sharedData page model toMsg pageView =
-    { body = Html.div [] pageView.body
-    , title = pageView.title
+    { title = pageView.title
+    , body =
+        Html.div []
+            [ Html.header []
+                [ Html.a
+                    [ Attributes.href "/"
+                    , Attributes.title "Learn more about Gren"
+                    ]
+                    [ Html.text "Home" ]
+                , Html.nav []
+                    [ Html.ul []
+                        [ navLink
+                            { label = "Install"
+                            , link = "/install"
+                            , title = "Get the compiler setup on your machine"
+                            }
+                        , navLink
+                            { label = "Learn"
+                            , link = "/learn"
+                            , title = "Learn how to write Gren code"
+                            }
+                        , navLink
+                            { label = "Community"
+                            , link = "/community"
+                            , title = "Ask questions, discuss ideas and contribute in our community"
+                            }
+                        , navLink
+                            { label = "Blog"
+                            , link = "/blog"
+                            , title = "Read the latest news from the core team"
+                            }
+                        ]
+                    ]
+                ]
+            , Html.main_ [] pageView.body
+            , Html.footer [] [ Html.text "Copyright (c) 2022-present, Robin Heggelund Hansen" ]
+            ]
     }
+
+
+type alias NavLink =
+    { label : String
+    , link : String
+    , title : String
+    }
+
+
+navLink : NavLink -> Html msg
+navLink options =
+    Html.li []
+        [ Html.a
+            [ Attributes.href options.link ]
+            [ Html.text options.label ]
+        ]
