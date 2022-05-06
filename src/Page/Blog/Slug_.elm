@@ -1,4 +1,4 @@
-module Page.News.Slug_ exposing (Data, Model, Msg, page)
+module Page.Blog.Slug_ exposing (Data, Model, Msg, page)
 
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
@@ -77,7 +77,7 @@ data routeParams =
 head :
     StaticPayload Data RouteParams
     -> List Head.Tag
-head static =
+head _ =
     Seo.summary
         { canonicalUrlOverride = Nothing
         , siteName = "elm-pages"
@@ -103,7 +103,7 @@ view :
     -> Shared.Model
     -> StaticPayload Data RouteParams
     -> View msg
-view maybeUrl sharedModel static =
+view _ _ static =
     { title = static.data.article.title
     , body =
         case Markdown.Parser.parse static.data.article.body of

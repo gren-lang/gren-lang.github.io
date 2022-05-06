@@ -1,9 +1,8 @@
-module Page.News exposing (Data, Model, Msg, page)
+module Page.Blog exposing (Data, Model, Msg, page)
 
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
 import DataSource.File as File
-import DataSource.Glob as Glob
 import Head
 import Head.Seo as Seo
 import Html exposing (Html)
@@ -51,7 +50,7 @@ data =
 head :
     StaticPayload Data RouteParams
     -> List Head.Tag
-head static =
+head _ =
     Seo.summary
         { canonicalUrlOverride = Nothing
         , siteName = "elm-pages"
@@ -61,9 +60,9 @@ head static =
             , dimensions = Nothing
             , mimeType = Nothing
             }
-        , description = "TODO"
+        , description = "News from the Gren core team"
         , locale = Nothing
-        , title = "TODO title" -- metadata.title -- TODO
+        , title = "Blog"
         }
         |> Seo.website
 
@@ -73,11 +72,11 @@ view :
     -> Shared.Model
     -> StaticPayload Data RouteParams
     -> View msg
-view maybeUrl sharedModel static =
-    { title = "Gren - News"
+view _ _ static =
+    { title = "Gren - Blog"
     , body =
         [ Html.h1 []
-            [ Html.text "News" ]
+            [ Html.text "Blog" ]
         , Html.ul []
             (List.map viewArticle static.data)
         ]
@@ -88,6 +87,6 @@ viewArticle : Article -> Html msg
 viewArticle article =
     Html.li []
         [ Html.a
-            [ Attribute.href <| "/news/" ++ article.title ]
+            [ Attribute.href <| "/blog/" ++ article.title ]
             [ Html.text article.title ]
         ]
