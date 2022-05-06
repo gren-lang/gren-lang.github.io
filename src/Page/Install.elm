@@ -43,16 +43,16 @@ head :
 head _ =
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "elm-pages"
+        , siteName = "Gren"
         , image =
             { url = Pages.Url.external "TODO"
-            , alt = "elm-pages logo"
+            , alt = "Gren logo"
             , dimensions = Nothing
             , mimeType = Nothing
             }
-        , description = "A pure functional language for the modern applications"
+        , description = "Get started with Gren"
         , locale = Nothing
-        , title = "Gren"
+        , title = "Gren - Install"
         }
         |> Seo.website
 
@@ -67,7 +67,7 @@ view :
     -> StaticPayload Data RouteParams
     -> View msg
 view _ _ _ =
-    { title = "Gren"
+    { title = "Gren - Install"
     , body =
         [ Html.h3 []
             [ Html.text "Install" ]

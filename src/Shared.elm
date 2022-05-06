@@ -41,8 +41,7 @@ type SharedMsg
 
 
 type alias Model =
-    { showMobileMenu : Bool
-    }
+    {}
 
 
 init :
@@ -59,8 +58,8 @@ init :
             , pageUrl : Maybe PageUrl
             }
     -> ( Model, Cmd Msg )
-init navigationKey flags maybePagePath =
-    ( { showMobileMenu = False }
+init _ _ _ =
+    ( {}
     , Cmd.none
     )
 
@@ -69,9 +68,9 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         OnPageChange _ ->
-            ( { model | showMobileMenu = False }, Cmd.none )
+            ( model, Cmd.none )
 
-        SharedMsg globalMsg ->
+        SharedMsg _ ->
             ( model, Cmd.none )
 
 
@@ -95,7 +94,7 @@ view :
     -> (Msg -> msg)
     -> View msg
     -> { body : Html msg, title : String }
-view sharedData page model toMsg pageView =
+view _ _ _ _ pageView =
     { title = pageView.title
     , body =
         Html.main_ []

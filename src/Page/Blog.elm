@@ -53,16 +53,16 @@ head :
 head _ =
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "elm-pages"
+        , siteName = "Gren"
         , image =
             { url = Pages.Url.external "TODO"
-            , alt = "elm-pages logo"
+            , alt = "Gren logo"
             , dimensions = Nothing
             , mimeType = Nothing
             }
         , description = "News from the Gren core team"
         , locale = Nothing
-        , title = "Blog"
+        , title = "Gren - Blog"
         }
         |> Seo.website
 
