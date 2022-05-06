@@ -1,3 +1,49 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css");
+
+.container {
+    max-width: 80rem;
+}
+
+header {
+    background-color: #f4f5f6;
+    border-bottom: 0.1rem solid #d1d1d1;
+    height: 5.2rem;
+    line-height: 5.2rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+header .navigation-list {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+header .navigation-listitem {
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+.content {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+}
+
+footer {
+    height: 3.5rem;
+    line-height: 3.5rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+footer small {
+    display: block;
+    text-align: center;
+}
