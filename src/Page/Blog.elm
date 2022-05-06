@@ -75,7 +75,7 @@ view :
 view _ _ static =
     { title = "Gren - Blog"
     , body =
-        [ Html.h1 []
+        [ Html.h3 []
             [ Html.text "Blog" ]
         , Html.ul []
             (List.map viewArticle static.data)

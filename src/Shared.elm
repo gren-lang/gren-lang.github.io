@@ -98,15 +98,18 @@ view :
 view sharedData page model toMsg pageView =
     { title = pageView.title
     , body =
-        Html.div []
-            [ Html.header []
-                [ Html.a
-                    [ Attributes.href "/"
-                    , Attributes.title "Learn more about Gren"
-                    ]
-                    [ Html.text "Home" ]
-                , Html.nav []
-                    [ Html.ul []
+        Html.main_ []
+            [ Html.header
+                []
+                [ Html.nav
+                    [ Attributes.class "container" ]
+                    [ Html.a
+                        [ Attributes.href "/"
+                        , Attributes.title "Learn more about Gren"
+                        ]
+                        [ Html.text "Gren" ]
+                    , Html.ul
+                        [ Attributes.class "navigation-list float-right" ]
                         [ navLink
                             { label = "Install"
                             , link = "/install"
@@ -130,8 +133,14 @@ view sharedData page model toMsg pageView =
                         ]
                     ]
                 ]
-            , Html.main_ [] pageView.body
-            , Html.footer [] [ Html.text "Copyright (c) 2022-present, Robin Heggelund Hansen" ]
+            , Html.section
+                [ Attributes.class "container content" ]
+                pageView.body
+            , Html.footer []
+                [ Html.small
+                    [ Attributes.class "container" ]
+                    [ Html.text "Copyright © 2022, The Gren Contributors" ]
+                ]
             ]
     }
 
@@ -145,8 +154,11 @@ type alias NavLink =
 
 navLink : NavLink -> Html msg
 navLink options =
-    Html.li []
+    Html.li
+        [ Attributes.class "navigation-listitem" ]
         [ Html.a
-            [ Attributes.href options.link ]
+            [ Attributes.href options.link
+            , Attributes.title options.title
+            ]
             [ Html.text options.label ]
         ]
