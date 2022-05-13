@@ -9,7 +9,6 @@ import Html
 import List.Extra
 import Markdown.Parser
 import Markdown.Renderer
-import OptimizedDecoder
 import Page exposing (Page, StaticPayload)
 import Page.Learn as Learn
 import Pages.PageUrl exposing (PageUrl)
@@ -112,7 +111,7 @@ view _ _ static =
                 case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
                     Ok html ->
                         [ Html.h3 [] [ Html.text currentChapter.title ]
-                        , Learn.chapterBox chapters
+                        , Learn.chapterBox (Just currentChapter) chapters
                         ]
                             ++ html
 

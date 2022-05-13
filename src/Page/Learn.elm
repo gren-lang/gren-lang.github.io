@@ -77,7 +77,7 @@ view _ _ payload =
     , body =
         [ Html.h3 []
             [ Html.text "Learn" ]
-        , chapterBox payload.data
+        , chapterBox Nothing payload.data
         , Html.p []
             [ Html.text description ]
         ]
@@ -94,18 +94,24 @@ description =
     """
 
 
-chapterBox : List Chapter -> Html msg
-chapterBox chapters =
+chapterBox : Maybe Chapter -> List Chapter -> Html msg
+chapterBox currentChapter chapters =
     Html.ul []
-        (List.map chapterLink chapters)
+        (List.map (chapterLink currentChapter) chapters)
 
 
-chapterLink : Chapter -> Html msg
-chapterLink chapter =
-    Html.li []
-        [ Html.a
-            [ Attribute.href <| "/learn/" ++ chapter.slug
-            , Attribute.title <| "Read '" ++ chapter.title ++ "'"
+chapterLink : Maybe Chapter -> Chapter -> Html msg
+chapterLink currentChapter chapter =
+    if Maybe.withDefault False <| Maybe.map ((==) chapter) currentChapter then
+        Html.li []
+            [ Html.text chapter.title
             ]
-            [ Html.text chapter.title ]
-        ]
+
+    else
+        Html.li []
+            [ Html.a
+                [ Attribute.href <| "/learn/" ++ chapter.slug
+                , Attribute.title <| "Read '" ++ chapter.title ++ "'"
+                ]
+                [ Html.text chapter.title ]
+            ]
