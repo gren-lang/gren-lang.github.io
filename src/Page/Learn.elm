@@ -1,4 +1,4 @@
-module Page.Learn exposing (Data, Model, Msg, page)
+module Page.Learn exposing (Data, Model, Msg, chapterBox, page)
 
 import Data.GuideChapter as GuideChapter exposing (Chapter)
 import DataSource exposing (DataSource)
