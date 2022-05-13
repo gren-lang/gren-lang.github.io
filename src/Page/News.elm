@@ -78,18 +78,39 @@ view _ _ static =
         [ Html.h3 []
             [ Html.text "News" ]
         , Html.p []
-            [ Html.text description ]
+            [ Html.text "Here you can find news related to the "
+            , Html.a
+                [ Attribute.href "https://github.com/gren-lang/compiler"
+                , Attribute.title "Github repository of the Gren compiler"
+                ]
+                [ Html.text "compiler" ]
+            , Html.text " and "
+            , Html.a
+                [ Attribute.href "https://github.com/gren-lang"
+                , Attribute.title "Gren's github organization"
+                ]
+                [ Html.text "core packages" ]
+            , Html.text "."
+            ]
+        , Html.p []
+            [ Html.text "For more frequent news regarding the community, development of Gren"
+            , Html.text " and other things, consider following us on "
+            , Html.a
+                [ Attribute.href "https://twitter.com/gren_lang"
+                , Attribute.title "Follow us on Twitter"
+                ]
+                [ Html.text "twitter" ]
+            , Html.text " and join our "
+            , Html.a
+                [ Attribute.href "https://gren.zulipchat.com/"
+                , Attribute.title "Join our Zulip"
+                ]
+                [ Html.text "Zulip" ]
+            , Html.text "."
+            ]
         ]
             ++ List.map viewArticle static.data
     }
-
-
-description : String
-description =
-    String.trim """
-    Here you can find announcements from the Gren core team.
-    For more news, be sure to checkout our Twitter and join our Zulip instance.
-    """
 
 
 viewArticle : Article -> Html msg
