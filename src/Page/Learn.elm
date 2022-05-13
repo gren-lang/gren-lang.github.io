@@ -77,26 +77,33 @@ view _ _ payload =
     , body =
         [ Html.h3 []
             [ Html.text "Learn" ]
+        , resources
+        , Html.h3 []
+            [ Html.text "The Guide" ]
         , chapterBox Nothing payload.data
-        , Html.p []
-            [ Html.text description ]
+        , resources
         ]
     }
 
 
-description : String
-description =
-    String.trim """
-    Welcome to the official Gren Guide.
-    Once you've read through this guide, you might want to check out some example projects.
-    You can ask questions in our #beginner channel on Zulip.
-    Note: This guide is still being worked on.
-    """
+resources : Html msg
+resources =
+    Html.p []
+        [ Html.text <|
+            String.trim """Welcome to the official Gren Guide.
+            Once you've read through this guide, you might want to check out some example projects.
+            You can ask questions in our #beginner channel on Zulip.
+            Note: This guide is still being worked on.
+            """
+        ]
 
 
 chapterBox : Maybe Chapter -> List Chapter -> Html msg
 chapterBox currentChapter chapters =
-    Html.ul []
+    Html.ul
+        [ Attribute.class "guide"
+        , Attribute.class "chapter-box"
+        ]
         (List.map (chapterLink currentChapter) chapters)
 
 

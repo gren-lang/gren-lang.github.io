@@ -47,3 +47,16 @@ footer small {
     display: block;
     text-align: center;
 }
+
+.guide.chapter-box {
+    display: inline-block;
+    background-color: #f4f5f6;
+    border: 0.1rem solid #d1d1d1;
+    padding: 2rem;
+    margin-right: 2rem;
+    float: left;
+}
+
+.guide.chapter-box li:last-child {
+    margin-bottom: 0;
+}
