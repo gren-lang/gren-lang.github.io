@@ -6,9 +6,10 @@ import OptimizedDecoder as Decode exposing (Decoder)
 
 
 type alias Article =
-    { body : String
-    , title : String
+    { title : String
+    , body : String
     , date : String
+    , slug : String
     }
 
 
@@ -23,6 +24,14 @@ filePaths =
 
 decoder : String -> Decoder Article
 decoder body =
-    Decode.map2 (Article body)
+    Decode.map3
+        (\title date slug ->
+            { title = title
+            , body = body
+            , date = date
+            , slug = slug
+            }
+        )
         (Decode.field "title" Decode.string)
         (Decode.field "date" Decode.string)
+        (Decode.field "slug" Decode.string)

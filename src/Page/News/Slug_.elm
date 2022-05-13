@@ -1,4 +1,4 @@
-module Page.Blog.Slug_ exposing (Data, Model, Msg, page)
+module Page.News.Slug_ exposing (Data, Model, Msg, page)
 
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
@@ -49,7 +49,7 @@ routes =
 routeParamDecoder : Decoder RouteParams
 routeParamDecoder =
     Decode.map RouteParams
-        (Decode.field "title" Decode.string)
+        (Decode.field "slug" Decode.string)
 
 
 data : RouteParams -> DataSource Data
@@ -59,7 +59,7 @@ data routeParams =
             (List.map (File.bodyWithFrontmatter Article.decoder))
         |> DataSource.resolve
         |> DataSource.map
-            (List.filter (\article -> article.title == routeParams.slug))
+            (List.filter (\article -> article.slug == routeParams.slug))
         |> DataSource.andThen
             (\results ->
                 case List.head results of
@@ -104,13 +104,13 @@ view :
     -> StaticPayload Data RouteParams
     -> View msg
 view _ _ static =
-    { title = static.data.article.title
+    { title = "Gren - " ++ static.data.article.title
     , body =
         case Markdown.Parser.parse static.data.article.body of
             Ok markdown ->
                 case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
                     Ok html ->
-                        html
+                        Html.h3 [] [ Html.text static.data.article.title ] :: html
 
                     Err _ ->
                         [ Html.text "Failed to render markdown" ]

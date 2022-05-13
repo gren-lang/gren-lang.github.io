@@ -125,8 +125,8 @@ view _ _ _ _ pageView =
                             , title = "Ask questions, discuss ideas and contribute in our community"
                             }
                         , navLink
-                            { label = "Blog"
-                            , link = "/blog"
+                            { label = "News"
+                            , link = "/news"
                             , title = "Read the latest news from the core team"
                             }
                         ]
