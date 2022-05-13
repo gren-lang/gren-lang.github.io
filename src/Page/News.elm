@@ -78,10 +78,18 @@ view _ _ static =
         [ Html.h3 []
             [ Html.text "News" ]
         , Html.p []
-            [ Html.text "Here you can find announcements from the Gren core team. For more news, be sure to checkout our Twitter and join our Zulip instance." ]
+            [ Html.text description ]
         ]
             ++ List.map viewArticle static.data
     }
+
+
+description : String
+description =
+    String.trim """
+    Here you can find announcements from the Gren core team.
+    For more news, be sure to checkout our Twitter and join our Zulip instance.
+    """
 
 
 viewArticle : Article -> Html msg
@@ -99,6 +107,8 @@ viewArticle article =
         , Html.p [] [ Html.text article.date ]
         , Html.p [] [ Html.text firstParagraph ]
         , Html.a
-            [ Attribute.href <| "/news/" ++ article.slug ]
+            [ Attribute.href <| "/news/" ++ article.slug
+            , Attribute.title <| "Read the rest of '" ++ article.title ++ "'"
+            ]
             [ Html.text "Continue reading" ]
         ]
