@@ -69,7 +69,5 @@ view :
 view _ _ _ =
     { title = "Gren"
     , body =
-        [ Html.h3 []
-            [ Html.text "Gren" ]
-        ]
+        []
     }
