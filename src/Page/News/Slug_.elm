@@ -89,7 +89,7 @@ head _ =
             }
         , description = "TODO"
         , locale = Nothing
-        , title = "TODO title" -- metadata.title -- TODO
+        , title = "TODO title"
         }
         |> Seo.website
 
@@ -104,13 +104,22 @@ view :
     -> StaticPayload Data RouteParams
     -> View msg
 view _ _ static =
-    { title = "Gren - " ++ static.data.article.title
+    let
+        article =
+            static.data.article
+    in
+    { title = "Gren - " ++ article.title
     , body =
-        case Markdown.Parser.parse static.data.article.body of
+        case Markdown.Parser.parse article.body of
             Ok markdown ->
                 case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
                     Ok html ->
-                        Html.h3 [] [ Html.text static.data.article.title ] :: html
+                        [ Html.header []
+                            [ Html.h3 [] [ Html.text article.title ]
+                            , Html.small [] [ Html.text <| "Published: " ++ article.date ]
+                            ]
+                        ]
+                            ++ html
 
                     Err _ ->
                         [ Html.text "Failed to render markdown" ]

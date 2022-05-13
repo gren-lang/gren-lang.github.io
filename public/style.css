@@ -6,7 +6,7 @@
     max-width: 80rem;
 }
 
-header {
+main > header {
     background-color: #f4f5f6;
     border-bottom: 0.1rem solid #d1d1d1;
     height: 5.2rem;
@@ -18,22 +18,31 @@ header {
     z-index: 2;
 }
 
-header .navigation-list {
+main > header .navigation-list {
     list-style: none;
     margin-bottom: 0;
 }
 
-header .navigation-listitem {
+main > header .navigation-listitem {
     display: inline-block;
     margin-left: 2rem;
 }
 
-.content {
+main > .content {
     padding-top: 7rem;
     padding-bottom: 4rem;
 }
 
-footer {
+main > .content > header {
+    margin-bottom: 2rem;
+}
+
+main > .content > header > h3 {
+    margin-bottom: 0;
+}
+
+
+main > footer {
     height: 3.5rem;
     line-height: 3.5rem;
     width: 100%;
@@ -43,7 +52,7 @@ footer {
     z-index: 2;
 }
 
-footer small {
+main > footer small {
     display: block;
     text-align: center;
 }
@@ -59,4 +68,20 @@ footer small {
 
 .guide.chapter-box li:last-child {
     margin-bottom: 0;
+}
+
+article {
+    margin-top: 5rem;
+}
+
+article > header {
+    margin-bottom: 2rem;
+}
+
+article > header > h4 {
+    margin-bottom: 0;
+}
+
+article > p {
+    margin-bottom: 1rem;
 }

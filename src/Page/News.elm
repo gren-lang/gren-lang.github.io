@@ -103,12 +103,17 @@ viewArticle article =
                 |> Maybe.withDefault ""
     in
     Html.article []
-        [ Html.h4 [] [ Html.text article.title ]
-        , Html.p [] [ Html.text article.date ]
-        , Html.p [] [ Html.text firstParagraph ]
-        , Html.a
-            [ Attribute.href <| "/news/" ++ article.slug
-            , Attribute.title <| "Read the rest of '" ++ article.title ++ "'"
+        [ Html.header []
+            [ Html.h4 [] [ Html.text article.title ]
+            , Html.small [] [ Html.text <| "Published: " ++ article.date ]
             ]
-            [ Html.text "Continue reading" ]
+        , Html.p []
+            [ Html.text firstParagraph ]
+        , Html.small []
+            [ Html.a
+                [ Attribute.href <| "/news/" ++ article.slug
+                , Attribute.title <| "Read the rest of '" ++ article.title ++ "'"
+                ]
+                [ Html.text "Continue reading" ]
+            ]
         ]

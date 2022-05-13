@@ -89,7 +89,7 @@ head _ =
             }
         , description = "TODO"
         , locale = Nothing
-        , title = "TODO title" -- metadata.title -- TODO
+        , title = "TODO title"
         }
         |> Seo.website
 
