@@ -77,9 +77,6 @@ view _ _ payload =
     , body =
         [ Html.h3 []
             [ Html.text "Learn" ]
-        , resources
-        , Html.h3 []
-            [ Html.text "The Guide" ]
         , chapterBox Nothing payload.data
         , resources
         ]
@@ -88,13 +85,36 @@ view _ _ payload =
 
 resources : Html msg
 resources =
-    Html.p []
-        [ Html.text <|
-            String.trim """Welcome to the official Gren Guide.
-            Once you've read through this guide, you might want to check out some example projects.
-            You can ask questions in our #beginner channel on Zulip.
-            Note: This guide is still being worked on.
-            """
+    Html.div []
+        [ Html.p []
+            [ Html.text "So you want to learn Gren?" ]
+        , Html.p []
+            [ Html.text <|
+                String.trim """
+                A good place to start is the official Gren guide. This covers everything from why
+                you would use Gren, to how you write your first application. To get started, just
+                click on a interesting topic in the box to the left.
+                """
+            ]
+        , Html.p []
+            [ Html.text "Once you understand the basics, you might want to take a look at a few "
+            , Html.a
+                [ Attribute.href "https://github.com/gren-lang/example-projects"
+                , Attribute.title "example projects"
+                ]
+                [ Html.text "example projects" ]
+            , Html.text " to get a better idea on the sort of things you can do with Gren."
+            ]
+        , Html.p []
+            [ Html.text "If you need any help along the way, or just want to chat with other people "
+            , Html.text "who're enthusiastic about Gren, then you can join our "
+            , Html.a
+                [ Attribute.href "https://gren.zulipchat.com/"
+                , Attribute.title "Join our community at Zulip"
+                ]
+                [ Html.text "Zulip" ]
+            , Html.text " instance."
+            ]
         ]
 
 
@@ -122,3 +142,15 @@ chapterLink currentChapter chapter =
                 ]
                 [ Html.text chapter.title ]
             ]
+
+
+guideDescription : Html msg
+guideDescription =
+    Html.p []
+        [ Html.text <|
+            String.trim """Welcome to the official Gren Guide.
+            Once you've read through this guide, you might want to check out some example projects.
+            You can ask questions in our #beginner channel on Zulip.
+            Note: This guide is still being worked on.
+            """
+        ]
