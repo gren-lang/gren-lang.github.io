@@ -1,5 +1,6 @@
 module Page.News.Slug_ exposing (Data, Model, Msg, page)
 
+import Date
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
 import DataSource.File as File
@@ -54,10 +55,7 @@ routeParamDecoder =
 
 data : RouteParams -> DataSource Data
 data routeParams =
-    Article.filePaths
-        |> DataSource.map
-            (List.map (File.bodyWithFrontmatter Article.decoder))
-        |> DataSource.resolve
+    Article.all
         |> DataSource.map
             (List.filter (\article -> article.slug == routeParams.slug))
         |> DataSource.andThen
@@ -114,12 +112,12 @@ view _ _ static =
             Ok markdown ->
                 case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
                     Ok html ->
-                        [ Html.header []
+                        Html.header []
                             [ Html.h3 [] [ Html.text article.title ]
-                            , Html.small [] [ Html.text <| "Published: " ++ article.date ]
+                            , Html.small [] [ Html.text <| "Published: " ++ Date.toIsoString article.published ]
                             ]
-                        ]
-                            ++ html
+                        
+                            :: html
 
                     Err _ ->
                         [ Html.text "Failed to render markdown" ]

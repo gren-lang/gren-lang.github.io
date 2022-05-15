@@ -1,5 +1,6 @@
 module Page.News exposing (Data, Model, Msg, page)
 
+import Date
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
 import DataSource.File as File
@@ -115,21 +116,13 @@ view _ _ static =
 
 viewArticle : Article -> Html msg
 viewArticle article =
-    let
-        firstParagraph =
-            article.body
-                |> String.trim
-                |> String.lines
-                |> List.head
-                |> Maybe.withDefault ""
-    in
     Html.article []
         [ Html.header []
             [ Html.h4 [] [ Html.text article.title ]
-            , Html.small [] [ Html.text <| "Published: " ++ article.date ]
+            , Html.small [] [ Html.text <| "Published: " ++ Date.toIsoString article.published ]
             ]
         , Html.p []
-            [ Html.text firstParagraph ]
+            [ Html.text article.description ]
         , Html.small []
             [ Html.a
                 [ Attribute.href <| "/news/" ++ article.slug
