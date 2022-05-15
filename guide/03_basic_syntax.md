@@ -1,5 +1,5 @@
 ---
-title: Basic syntax
+title: "Basic syntax"
 ---
 
 Syntax stuff

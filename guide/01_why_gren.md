@@ -1,5 +1,5 @@
 ---
-title: Why Gren?
+title: "Why Gren?"
 ---
 
 This is another paragraph.
