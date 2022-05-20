@@ -87,12 +87,10 @@ resources : Html msg
 resources =
     Html.div []
         [ Html.p []
-            [ Html.text "So you want to learn Gren?" ]
-        , Html.p []
             [ Html.text <|
                 String.trim """
-                This is the official language guide. It covers everything from why
-                you would use Gren, to write your first application. To get started, just
+                Welcome to the official language guide. It covers everything from why
+                you would use Gren, to how you write your first application. To get started, just
                 click on a interesting topic in the table of contents.
                 """
             ]
@@ -106,6 +104,15 @@ resources =
             , Html.text " to get a better idea on the sort of things you can do."
             ]
         , Html.p []
+            [ Html.text "You can also look at "
+            , Html.a
+                [ Attribute.href "https://github.com/gren-lang"
+                , Attribute.title "Gren's GitHub Organization"
+                ]
+                [ Html.text "Gren's GitHub Organization" ]
+            , Html.text " page to see all the different packages you can use in your applications."
+            ]
+        , Html.p []
             [ Html.text "If you need any help along the way, or just want to chat with other people "
             , Html.text "who're enthusiastic about Gren, then you can join our "
             , Html.a
@@ -114,6 +121,10 @@ resources =
                 ]
                 [ Html.text "Zulip" ]
             , Html.text "."
+            ]
+        , Html.p []
+            [ Html.i []
+                [ Html.text "Note: This language guide is still a work in progress. Large sections are unfished or simply missing. This will improve in time." ]
             ]
         ]
 
