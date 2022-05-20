@@ -4,6 +4,7 @@ import DataSource exposing (DataSource)
 import Head
 import Head.Seo as Seo
 import Html
+import Html.Attributes as Attribute
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
@@ -69,5 +70,13 @@ view :
 view _ _ _ =
     { title = "Gren"
     , body =
-        []
+        [ Html.div
+            [ Attribute.id "banner" ]
+            [ Html.img
+                [ Attribute.src "/bigbird.png"
+                , Attribute.alt "Robin, the Gren mascot"
+                ]
+                []
+            ]
+        ]
     }

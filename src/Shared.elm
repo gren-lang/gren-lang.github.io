@@ -106,7 +106,12 @@ view _ _ _ _ pageView =
                         [ Attributes.href "/"
                         , Attributes.title "Learn more about Gren"
                         ]
-                        [ Html.text "Gren" ]
+                        [ Html.img
+                            [ Attributes.src "/big_icon.png"
+                            , Attributes.alt "Robin, the Gren mascot"
+                            ]
+                            []
+                        ]
                     , Html.ul
                         [ Attributes.class "navigation-list float-right" ]
                         [ navLink

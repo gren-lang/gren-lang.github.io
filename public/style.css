@@ -2,12 +2,21 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css");
 
+:root {
+  --accent: #ff6600;
+  --background: #f4f5f6;
+}
+
+a {
+    color: var(--accent);
+}
+
 .container {
     max-width: 80rem;
 }
 
 main > header {
-    background-color: #f4f5f6;
+    background-color: var(--background);
     border-bottom: 0.1rem solid #d1d1d1;
     height: 5.2rem;
     line-height: 5.2rem;
@@ -18,6 +27,11 @@ main > header {
     z-index: 2;
 }
 
+main > header img {
+    height: 3.8rem;
+    vertical-align: middle;
+}
+
 main > header .navigation-list {
     list-style: none;
     margin-bottom: 0;
@@ -26,6 +40,12 @@ main > header .navigation-list {
 main > header .navigation-listitem {
     display: inline-block;
     margin-left: 2rem;
+}
+
+main > .content > #banner > img {
+    display: block;
+    max-width: 65%;
+    margin: 0 auto;
 }
 
 main > .content {
@@ -59,7 +79,7 @@ main > footer small {
 
 .guide.chapter-box {
     display: inline-block;
-    background-color: #f4f5f6;
+    background-color: var(--background);
     border: 0.1rem solid #d1d1d1;
     padding: 2rem;
     margin-right: 2rem;
