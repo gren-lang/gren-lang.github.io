@@ -11,6 +11,10 @@ a {
     color: var(--accent);
 }
 
+pre {
+    border-left-color: var(--accent);
+}
+
 .container {
     max-width: 80rem;
 }
@@ -83,9 +87,6 @@ main > footer small {
     border: 0.1rem solid #d1d1d1;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-}
-
-.guide.chapter-box summary {
 }
 
 .guide.chapter-box ul {
