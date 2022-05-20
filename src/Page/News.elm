@@ -1,9 +1,9 @@
 module Page.News exposing (Data, Model, Msg, page)
 
-import Date
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
 import DataSource.File as File
+import Date
 import Head
 import Head.Seo as Seo
 import Html exposing (Html)
@@ -42,10 +42,7 @@ type alias Data =
 
 data : DataSource Data
 data =
-    Article.filePaths
-        |> DataSource.map
-            (List.map (File.bodyWithFrontmatter Article.decoder))
-        |> DataSource.resolve
+    Article.all
 
 
 head :

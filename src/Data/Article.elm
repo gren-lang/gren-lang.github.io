@@ -16,10 +16,20 @@ type alias Article =
     }
 
 
-filePaths : DataSource (List String)
+type alias File =
+    { path : String
+    , name : String
+    }
+
+
+filePaths : DataSource (List File)
 filePaths =
     Glob.succeed
-        (\prefix filename suffix -> prefix ++ filename ++ suffix)
+        (\prefix filename suffix ->
+            { path = prefix ++ filename ++ suffix
+            , name = filename
+            }
+        )
         |> Glob.capture (Glob.literal "articles/")
         |> Glob.capture Glob.wildcard
         |> Glob.capture (Glob.literal ".md")
@@ -30,7 +40,7 @@ all : DataSource (List Article)
 all =
     filePaths
         |> DataSource.map
-            (List.map (File.bodyWithFrontmatter decoder))
+            (List.map (\f -> File.bodyWithFrontmatter (decoder f.name) f.path))
         |> DataSource.resolve
         |> DataSource.map
             (List.sortBy
@@ -38,20 +48,19 @@ all =
             )
 
 
-decoder : String -> Decoder Article
-decoder body =
-    Decode.map3
-        (\title published slug ->
+decoder : String -> String -> Decoder Article
+decoder filename body =
+    Decode.map2
+        (\title published ->
             { title = title
             , description = descriptionFromBody body
             , body = body
             , published = published
-            , slug = slug
+            , slug = filename
             }
         )
         (Decode.field "title" Decode.string)
         (Decode.field "published" (Decode.string |> Decode.andThen dateDecoder))
-        (Decode.field "slug" Decode.string)
 
 
 dateDecoder : String -> Decoder Date

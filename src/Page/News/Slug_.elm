@@ -1,9 +1,9 @@
 module Page.News.Slug_ exposing (Data, Model, Msg, page)
 
-import Date
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
 import DataSource.File as File
+import Date
 import Head
 import Head.Seo as Seo
 import Html
@@ -43,14 +43,7 @@ routes : DataSource (List RouteParams)
 routes =
     Article.filePaths
         |> DataSource.map
-            (List.map (File.onlyFrontmatter routeParamDecoder))
-        |> DataSource.resolve
-
-
-routeParamDecoder : Decoder RouteParams
-routeParamDecoder =
-    Decode.map RouteParams
-        (Decode.field "slug" Decode.string)
+            (List.map (\f -> RouteParams f.name))
 
 
 data : RouteParams -> DataSource Data
@@ -116,7 +109,6 @@ view _ _ static =
                             [ Html.h3 [] [ Html.text article.title ]
                             , Html.small [] [ Html.text <| "Published: " ++ Date.toIsoString article.published ]
                             ]
-                        
                             :: html
 
                     Err _ ->
