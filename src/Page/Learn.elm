@@ -91,8 +91,8 @@ resources =
         , Html.p []
             [ Html.text <|
                 String.trim """
-                A good place to start is the official Gren guide. This covers everything from why
-                you would use Gren, to how you write your first application. To get started, just
+                This is the official language guide. It covers everything from why
+                you would use Gren, to write your first application. To get started, just
                 click on a interesting topic in the box to the left.
                 """
             ]
@@ -103,7 +103,7 @@ resources =
                 , Attribute.title "example projects"
                 ]
                 [ Html.text "example projects" ]
-            , Html.text " to get a better idea on the sort of things you can do with Gren."
+            , Html.text " to get a better idea on the sort of things you can do."
             ]
         , Html.p []
             [ Html.text "If you need any help along the way, or just want to chat with other people "
@@ -113,7 +113,7 @@ resources =
                 , Attribute.title "Join our community at Zulip"
                 ]
                 [ Html.text "Zulip" ]
-            , Html.text " instance."
+            , Html.text "."
             ]
         ]
 
@@ -142,15 +142,3 @@ chapterLink currentChapter chapter =
                 ]
                 [ Html.text chapter.title ]
             ]
-
-
-guideDescription : Html msg
-guideDescription =
-    Html.p []
-        [ Html.text <|
-            String.trim """Welcome to the official Gren Guide.
-            Once you've read through this guide, you might want to check out some example projects.
-            You can ask questions in our #beginner channel on Zulip.
-            Note: This guide is still being worked on.
-            """
-        ]
