@@ -93,7 +93,7 @@ resources =
                 String.trim """
                 This is the official language guide. It covers everything from why
                 you would use Gren, to write your first application. To get started, just
-                click on a interesting topic in the box to the left.
+                click on a interesting topic in the table of contents.
                 """
             ]
         , Html.p []
@@ -120,11 +120,17 @@ resources =
 
 chapterBox : Maybe Chapter -> List Chapter -> Html msg
 chapterBox currentChapter chapters =
-    Html.ul
+    Html.details
         [ Attribute.class "guide"
         , Attribute.class "chapter-box"
         ]
-        (List.map (chapterLink currentChapter) chapters)
+        [ Html.summary
+            []
+            [ Html.text "Table of contents" ]
+        , Html.ul
+            []
+            (List.map (chapterLink currentChapter) chapters)
+        ]
 
 
 chapterLink : Maybe Chapter -> Chapter -> Html msg
