@@ -65,7 +65,7 @@ There are certain constructs that Gren doesn't have, that are often the source o
 
 1. Null
 2. Exceptions
-3. Uncontrontrolled side-effects
+3. Uncontrolled side-effects
 
 What Gren _does have_ is a flexible, although strict, type system which allows you represent these constructs in a way that let's the compiler help you avoid the most common bugs.
 
@@ -89,14 +89,14 @@ type Result err ok
 
 If a function returns a `Result` value, the compiler will force you to handle both the success and the failure condition.
 
-Consider for a moment what this means. Since Gren is staticly typed, that means that whenever you see a function which _doesn't_ return a `Maybe` or a `Result` type, you can be certain that you'll always end up with the promised return value.
+Consider for a moment what this means. Since Gren is statically typed, that means that whenever you see a function which _doesn't_ return a `Maybe` or a `Result` type, you can be certain that you'll always end up with the promised return value.
 
-The same concept applies to side-effects like performing http calls or saving things to disk. A side effect has to be modelled by the type system, and this also means that you have greater insights into the sort of things a third-party package can do.
+The same concept applies to side-effects like performing HTTP calls or saving things to disk. A side effect has to be modelled by the type system, and this also means that you have greater insights into the sort of things a third-party package can do.
 
 #### Conclusion
 
 Gren has made a very specific set of trade offs that makes it easy to locate and isolate bugs and side effects. These same trade offs also make the language small in both syntax and concepts. This again reduces the necessary time investment to learn the language, and makes it easy for the compiler to provide detailed and helpful error messages.
 
-These benefits comes at the cost of brevity. There's a chance that other programming languages will allow you write less code.
+These benefits comes at the cost of brevity. There's a chance that other programming languages will allow you to write less code.
 
 It is our belief that as your program grows in complexity and scope, the trade offs made by Gren make more and more sense.
