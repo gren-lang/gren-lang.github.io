@@ -33,5 +33,6 @@ This release of Gren was made possible by people who've written new code, portin
 * Gabriella Sartori
 * Harry Sarson
 * Dimitri B.
+* Jeroen Engels
 
 Thank you all for your help!
