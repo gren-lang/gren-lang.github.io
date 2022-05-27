@@ -2,18 +2,17 @@ module Page.News.Slug_ exposing (Data, Model, Msg, page)
 
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
-import DataSource.File as File
 import Date
 import Head
 import Head.Seo as Seo
 import Html
 import Markdown.Parser
 import Markdown.Renderer
-import OptimizedDecoder as Decode exposing (Decoder)
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
 import Shared
+import Site
 import View exposing (View)
 
 
@@ -68,19 +67,18 @@ data routeParams =
 head :
     StaticPayload Data RouteParams
     -> List Head.Tag
-head _ =
+head static =
+    let
+        article =
+            static.data.article
+    in
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "elm-pages"
-        , image =
-            { url = Pages.Url.external "TODO"
-            , alt = "elm-pages logo"
-            , dimensions = Nothing
-            , mimeType = Nothing
-            }
-        , description = "TODO"
+        , siteName = Site.name
+        , image = Site.defaultImage
+        , description = article.description
         , locale = Nothing
-        , title = "TODO title"
+        , title = Site.subTitle article.title
         }
         |> Seo.website
 
@@ -99,7 +97,7 @@ view _ _ static =
         article =
             static.data.article
     in
-    { title = "Gren - " ++ article.title
+    { title = Site.subTitle article.title
     , body =
         case Markdown.Parser.parse article.body of
             Ok markdown ->

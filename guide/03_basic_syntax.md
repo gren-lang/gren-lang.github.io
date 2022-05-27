@@ -1,5 +1,6 @@
 ---
 title: "Syntax"
+description: "Learn the syntax of Gren"
 ---
 
 #### Comments

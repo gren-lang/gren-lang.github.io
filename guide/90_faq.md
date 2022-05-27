@@ -1,5 +1,6 @@
 ---
 title: "FAQ"
+description: "Frequently Asked Questions"
 ---
 
 #### Why is the language called Gren?

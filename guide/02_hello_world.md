@@ -1,5 +1,6 @@
 ---
 title: "Hello, world!"
+description: "Learn how to setup the easiest project known to man: \"Hello, world!\""
 ---
 
 Getting a simple program to compile is a good way to verify that you've got everything setup correctly. Let's try to write a Gren program that outputs "Hello, world!" when opened up in browser.

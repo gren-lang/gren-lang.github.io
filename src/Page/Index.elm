@@ -7,8 +7,8 @@ import Html
 import Html.Attributes as Attribute
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
-import Pages.Url
 import Shared
+import Site
 import View exposing (View)
 
 
@@ -44,14 +44,9 @@ head :
 head _ =
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "Gren"
-        , image =
-            { url = Pages.Url.external "TODO"
-            , alt = "Gren logo"
-            , dimensions = Nothing
-            , mimeType = Nothing
-            }
-        , description = "A pure functional language for the modern applications"
+        , siteName = Site.name
+        , image = Site.defaultImage
+        , description = "A pure functional language for writing simple and correct applications"
         , locale = Nothing
         , title = "Gren"
         }

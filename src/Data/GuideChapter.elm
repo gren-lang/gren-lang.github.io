@@ -7,6 +7,7 @@ import OptimizedDecoder as Decode exposing (Decoder)
 
 type alias Chapter =
     { title : String
+    , description : String
     , slug : String
     , body : String
     }
@@ -35,11 +36,13 @@ filePaths =
 
 decoder : String -> String -> Decoder Chapter
 decoder filename body =
-    Decode.map
-        (\title ->
+    Decode.map2
+        (\title description ->
             { title = title
+            , description = description
             , slug = filename
             , body = body
             }
         )
         (Decode.field "title" Decode.string)
+        (Decode.field "description" Decode.string)

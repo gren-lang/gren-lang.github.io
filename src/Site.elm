@@ -1,13 +1,18 @@
-module Site exposing (config)
+module Site exposing
+    ( config
+    , defaultImage
+    , name
+    , subTitle
+    )
 
 import DataSource
 import Head
+import Head.Seo as Seo
 import LanguageTag exposing (LanguageTag)
 import LanguageTag.Language
 import MimeType
 import Pages.Manifest as Manifest
 import Pages.Url as Url
-import Path
 import Route
 import SiteConfig exposing (SiteConfig)
 
@@ -30,18 +35,23 @@ data =
     DataSource.succeed ()
 
 
+name : String
+name =
+    "Gren"
+
+
 head : Data -> List Head.Tag
 head _ =
-    [ Head.rootLanguage siteLanguage
+    [ Head.rootLanguage language
+    , Head.icon favicon.sizes MimeType.Png favicon.src
+    , Head.appleTouchIcon (Just 192) favicon.src
     , Head.sitemapLink "/sitemap.xml"
     , Head.rssLink "/feed.xml"
-    , Head.appleTouchIcon (Just 192) favicon.src
-    , Head.icon favicon.sizes MimeType.Png favicon.src
     ]
 
 
-siteLanguage : LanguageTag
-siteLanguage =
+language : LanguageTag
+language =
     LanguageTag.Language.en
         |> LanguageTag.build LanguageTag.emptySubtags
 
@@ -55,12 +65,26 @@ favicon =
     }
 
 
+defaultImage : Seo.Image
+defaultImage =
+    { url = Url.external "/bigbird.png"
+    , alt = "Gren logo"
+    , dimensions = Nothing
+    , mimeType = Just "image/png"
+    }
+
+
+subTitle : String -> String
+subTitle title =
+    title ++ " | Gren"
+
+
 manifest : Data -> Manifest.Config
 manifest _ =
     Manifest.init
-        { name = "Gren"
+        { name = name
         , description = "The official homepage of the Gren programming language"
         , startUrl = Route.Index |> Route.toPath
         , icons = [ favicon ]
         }
-        |> Manifest.withLang siteLanguage
+        |> Manifest.withLang language

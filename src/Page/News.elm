@@ -2,7 +2,6 @@ module Page.News exposing (Data, Model, Msg, page)
 
 import Data.Article as Article exposing (Article)
 import DataSource exposing (DataSource)
-import DataSource.File as File
 import Date
 import Head
 import Head.Seo as Seo
@@ -12,6 +11,7 @@ import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
 import Shared
+import Site
 import View exposing (View)
 
 
@@ -51,16 +51,11 @@ head :
 head _ =
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "Gren"
-        , image =
-            { url = Pages.Url.external "TODO"
-            , alt = "Gren logo"
-            , dimensions = Nothing
-            , mimeType = Nothing
-            }
+        , siteName = Site.name
+        , image = Site.defaultImage
         , description = "News from the Gren core team"
         , locale = Nothing
-        , title = "Gren - News"
+        , title = Site.subTitle "News"
         }
         |> Seo.website
 
@@ -71,7 +66,7 @@ view :
     -> StaticPayload Data RouteParams
     -> View msg
 view _ _ static =
-    { title = "Gren - News"
+    { title = Site.subTitle "News"
     , body =
         [ Html.h3 []
             [ Html.text "News" ]

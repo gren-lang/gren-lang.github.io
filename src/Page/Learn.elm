@@ -11,6 +11,7 @@ import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
 import Shared
+import Site
 import View exposing (View)
 
 
@@ -53,16 +54,11 @@ head :
 head _ =
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "Gren"
-        , image =
-            { url = Pages.Url.external "TODO"
-            , alt = "Gren logo"
-            , dimensions = Nothing
-            , mimeType = Nothing
-            }
+        , siteName = Site.name
+        , image = Site.defaultImage
         , description = "Learn how to program in Gren"
         , locale = Nothing
-        , title = "Gren - Learn"
+        , title = Site.subTitle "Learn"
         }
         |> Seo.website
 
@@ -73,7 +69,7 @@ view :
     -> StaticPayload Data RouteParams
     -> View msg
 view _ _ payload =
-    { title = "Gren - Learn"
+    { title = Site.subTitle "Learn"
     , body =
         [ Html.h3 []
             [ Html.text "Learn" ]

@@ -1,5 +1,6 @@
 ---
 title: "Why Gren?"
+description: "Why should you learn Gren? What benefits does it bring to the table?"
 ---
 
 Gren is a programming language that helps you write simple and correct software.

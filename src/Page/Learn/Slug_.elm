@@ -12,8 +12,8 @@ import Markdown.Renderer
 import Page exposing (Page, StaticPayload)
 import Page.Learn as Learn
 import Pages.PageUrl exposing (PageUrl)
-import Pages.Url
 import Shared
+import Site
 import View exposing (View)
 
 
@@ -77,19 +77,18 @@ data routeParams =
 head :
     StaticPayload Data RouteParams
     -> List Head.Tag
-head _ =
+head static =
+    let
+        currentChapter =
+            static.data.currentChapter
+    in
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "elm-pages"
-        , image =
-            { url = Pages.Url.external "TODO"
-            , alt = "elm-pages logo"
-            , dimensions = Nothing
-            , mimeType = Nothing
-            }
-        , description = "TODO"
+        , siteName = Site.name
+        , image = Site.defaultImage
+        , description = currentChapter.description
         , locale = Nothing
-        , title = "TODO title"
+        , title = Site.subTitle currentChapter.title
         }
         |> Seo.website
 
@@ -104,7 +103,7 @@ view _ _ static =
         { currentChapter, chapters } =
             static.data
     in
-    { title = "Gren - " ++ currentChapter.title
+    { title = Site.subTitle currentChapter.title
     , body =
         case Markdown.Parser.parse currentChapter.body of
             Ok markdown ->
