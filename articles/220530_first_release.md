@@ -1,6 +1,6 @@
 ---
 title: "Gren 0.1.0 is released"
-published: "2022-06-03"
+published: "2022-05-30"
 ---
 
 Today marks the first release of Gren, a programming language that helps you write simple and correct software.
