@@ -88,9 +88,14 @@ head static =
         , image = Site.defaultImage
         , description = currentChapter.description
         , locale = Nothing
-        , title = Site.subTitle currentChapter.title
+        , title = subTitle currentChapter.title
         }
         |> Seo.website
+
+
+subTitle : String -> String
+subTitle title =
+    Site.subTitle (title ++ " | Learn")
 
 
 view :
@@ -103,14 +108,15 @@ view _ _ static =
         { currentChapter, chapters } =
             static.data
     in
-    { title = Site.subTitle currentChapter.title
+    { title = subTitle currentChapter.title
     , body =
         case Markdown.Parser.parse currentChapter.body of
             Ok markdown ->
                 case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
                     Ok html ->
-                        [ Html.h3 [] [ Html.text currentChapter.title ]
+                        [ Html.h3 [] [ Html.text "Learn" ]
                         , Learn.chapterBox (Just currentChapter) chapters
+                        , Html.h4 [] [ Html.text currentChapter.title ]
                         ]
                             ++ html
 
