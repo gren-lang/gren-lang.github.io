@@ -93,4 +93,3 @@ Our `main` constant represents a `Html` value, which in this particular case is 
 
 Compile this using `gren make src/Main.gren`. This will produce a `index.html` file which, when opened, displays `Hello, world!`.
 
-Now that you've written your first program, head over to the [language guide](/learn) to learn more about Gren.
