@@ -33,7 +33,7 @@ If you like what you see, consider joining the [community](/community). We can u
 
 Gren follows a six-month release cadence. The next release will be v0.2.0 and be made available in December.
 
-The plan is to add support for more Web API's and basic support for applications running on the NodeJS runtime. In addition, the package manager will see become more efficient and reliable.
+The plan is to add support for more Web API's and basic support for applications running on the NodeJS runtime. In addition, the package manager will become more efficient and reliable.
 
 ### Thank you, contributors
 

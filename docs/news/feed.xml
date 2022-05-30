@@ -3,7 +3,7 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Mon, 30 May 2022 10:18:38 +0000</lastBuildDate>
+<lastBuildDate>Mon, 30 May 2022 10:56:57 +0000</lastBuildDate>
 <generator>elm-pages</generator>
 <item>
 <title>Gren 0.1.0 is released</title>
@@ -42,7 +42,7 @@ If you like what you see, consider joining the [community](/community). We can u
 
 Gren follows a six-month release cadence. The next release will be v0.2.0 and be made available in December.
 
-The plan is to add support for more Web API's and basic support for applications running on the NodeJS runtime. In addition, the package manager will see become more efficient and reliable.
+The plan is to add support for more Web API's and basic support for applications running on the NodeJS runtime. In addition, the package manager will become more efficient and reliable.
 
 ### Thank you, contributors
 
