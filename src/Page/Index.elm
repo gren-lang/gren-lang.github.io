@@ -78,7 +78,7 @@ view _ _ _ =
             [ Html.h3 []
                 [ Html.text "A programming language for simple and correct applications" ]
             , Html.p []
-                [ Html.text "Gren is a functional programming language with carefully managed side-effects and a strong static type system. The languge consists of a few concepts with human readable names that compose well together, so you can do more with less." ]
+                [ Html.text "Gren is a functional programming language with carefully managed side-effects and a strong static type system. The language consists of a few concepts with human readable names that compose well together, so you can do more with less." ]
             , Html.p []
                 [ Html.text "Programs written in Gren are simple, have few or no runtime exceptions and are fun to work with." ]
             ]
