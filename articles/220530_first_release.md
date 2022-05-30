@@ -5,7 +5,7 @@ published: "2022-05-30"
 
 Today marks the first release of Gren, a programming language that helps you write simple and correct software.
 
-Gren aims to be a small language that is easy to learn, and easy to understand. It wants to help you write correct software by being your assistant, pointing out likely mistakes as you write code. Finally, it tries to available wherever you need it to be, so that you can use it to write CLI tools, backend- or even frontend applications.
+Gren aims to be a small language that is easy to learn, and easy to understand. It wants to help you write correct software by being your assistant, pointing out likely mistakes as you write code. Finally, it tries to be available wherever you need it to be, so that you can use it to write CLI tools, backend- or even frontend applications.
 
 There already exist a language that is close to matching this description: [Elm](https://elm-lang.org). What Elm lacks is better support for Web API's, and official support for running outside the browser.
 
