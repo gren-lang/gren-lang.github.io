@@ -2,12 +2,25 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css");
 
+:root {
+  --accent: #ff6600;
+  --background: #f4f5f6;
+}
+
+a {
+    color: var(--accent);
+}
+
+pre {
+    border-left-color: var(--accent);
+}
+
 .container {
     max-width: 80rem;
 }
 
-header {
-    background-color: #f4f5f6;
+main > header {
+    background-color: var(--background);
     border-bottom: 0.1rem solid #d1d1d1;
     height: 5.2rem;
     line-height: 5.2rem;
@@ -18,22 +31,42 @@ header {
     z-index: 2;
 }
 
-header .navigation-list {
+main > header img {
+    height: 3.8rem;
+    vertical-align: middle;
+}
+
+main > header .navigation-list {
     list-style: none;
     margin-bottom: 0;
 }
 
-header .navigation-listitem {
+main > header .navigation-listitem {
     display: inline-block;
     margin-left: 2rem;
 }
 
-.content {
+main > .content > #banner > img {
+    display: block;
+    max-width: 65%;
+    margin: 0 auto;
+}
+
+main > .content {
     padding-top: 7rem;
     padding-bottom: 4rem;
 }
 
-footer {
+main > .content > header {
+    margin-bottom: 2rem;
+}
+
+main > .content > header > h3 {
+    margin-bottom: 0;
+}
+
+
+main > footer {
     height: 3.5rem;
     line-height: 3.5rem;
     width: 100%;
@@ -43,7 +76,40 @@ footer {
     z-index: 2;
 }
 
-footer small {
+main > footer small {
     display: block;
     text-align: center;
+}
+
+.guide.chapter-box {
+    display: block;
+    background-color: var(--background);
+    border: 0.1rem solid #d1d1d1;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.guide.chapter-box ul {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+.guide.chapter-box li:last-child {
+    margin-bottom: 0;
+}
+
+article {
+    margin-top: 7rem;
+}
+
+article > header {
+    margin-bottom: 1rem;
+}
+
+article > header > h4 {
+    margin-bottom: 0;
+}
+
+article > p {
+    margin-bottom: 1rem;
 }
