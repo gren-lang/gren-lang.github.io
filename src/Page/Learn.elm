@@ -9,7 +9,6 @@ import Html exposing (Html)
 import Html.Attributes as Attribute
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
-import Pages.Url
 import Shared
 import Site
 import View exposing (View)
@@ -120,7 +119,7 @@ resources =
             ]
         , Html.p []
             [ Html.i []
-                [ Html.text "Note: This language guide is still a work in progress. Large sections are unfished or simply missing. This will improve in time." ]
+                [ Html.text "Note: This language guide is still a work in progress. Large sections are unfinished or simply missing. This will improve in time." ]
             ]
         ]
 
