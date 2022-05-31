@@ -89,9 +89,8 @@ view _ _ _ =
             [ Html.text "Once you have the binary, you'll need to give it permission to execute and place it somewhere in your PATH. Below is an example for Mac OS." ]
         , Html.pre []
             [ multilineHtmlText """
-              unzip gren-macOS.zip
-              chmod +x gren
-              mv gren /usr/local/bin/
+              chmod +x gren_mac
+              mv gren_mac /usr/local/bin/gren
               """
             ]
         , Html.p []
