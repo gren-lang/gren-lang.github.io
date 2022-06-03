@@ -71,9 +71,9 @@ sumOfFiveAndTwo =
     sumOf 5 2
 ```
 
-`:` can be read as `has type`. One way to read the first constant definition in the above example is `theAnswer has type Int. theAnswer equals 42.`
+`:` can be read as `has type`. One way to read the first constant definition in the above example is: theAnswer has type Int. theAnswer equals 42.
 
-For functions it get's a little bit more complicated. `->` can be read as `to`. So `sumOf has type Int to Int to Int. sumOf first and second equals first + second.`
+For functions it get's a little bit more complicated. `->` can be read as `to`. So: sumOf has type Int to Int to Int. sumOf first and second equals first + second.
 
 When reading the type signature of a function, the last `->` points to the return value of the function, while the types before represent the inputs.
 
