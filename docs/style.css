@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css");
 
@@ -37,13 +37,48 @@ main > header img {
 }
 
 main > header .navigation-list {
+    display: none;
     list-style: none;
     margin-bottom: 0;
 }
 
-main > header .navigation-listitem {
+main > header .navigation-list > .navigation-listitem {
     display: inline-block;
     margin-left: 2rem;
+}
+
+main > header .navigation-icon > label {
+    font-size: 3rem;
+    text-align: right;
+}
+
+main > header .navigation-icon > input[type="checkbox"] {
+    display: none;
+}
+
+main > header .navigation-icon > .mobile-navigation-list {
+    display: none;
+    background-color: var(--background);
+    padding: 1rem 2rem;
+}
+
+main > header .navigation-icon > .mobile-navigation-list > .navigation-listitem {
+    display: block;
+    line-height: 1.6rem;
+}
+
+main > header .navigation-icon > input[type="checkbox"]:checked ~ .mobile-navigation-list {
+    display:block;
+}
+
+@media (min-width: 40rem) {
+    main > header .navigation-list {
+        display: block;
+    }
+    
+    main > header .navigation-icon {
+        display: none;
+    }
 }
 
 main > .content > #banner > img {
@@ -67,6 +102,7 @@ main > .content > header > h3 {
 
 
 main > footer {
+    background-color: white;
     height: 3.5rem;
     line-height: 3.5rem;
     width: 100%;
