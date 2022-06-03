@@ -67,6 +67,7 @@ main > .content > header > h3 {
 
 
 main > footer {
+    background-color: white;
     height: 3.5rem;
     line-height: 3.5rem;
     width: 100%;
