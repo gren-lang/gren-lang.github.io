@@ -114,26 +114,20 @@ view _ _ _ _ pageView =
                         ]
                     , Html.ul
                         [ Attributes.class "navigation-list float-right" ]
-                        [ navLink
-                            { label = "Install"
-                            , link = "/install"
-                            , title = "Get the compiler setup on your machine"
-                            }
-                        , navLink
-                            { label = "Learn"
-                            , link = "/learn"
-                            , title = "Learn how to write Gren code"
-                            }
-                        , navLink
-                            { label = "Community"
-                            , link = "/community"
-                            , title = "Ask questions, discuss ideas and contribute in our community"
-                            }
-                        , navLink
-                            { label = "News"
-                            , link = "/news"
-                            , title = "Read the latest news from the core team"
-                            }
+                        navLinks
+                    , Html.span
+                        [ Attributes.class "navigation-icon float-right" ]
+                        [ Html.label
+                            [ Attributes.for "navigation-menu-checkbox" ]
+                            [ Html.text "☰" ]
+                        , Html.input
+                            [ Attributes.id "navigation-menu-checkbox"
+                            , Attributes.type_ "checkbox"
+                            ]
+                            []
+                        , Html.ul
+                            [ Attributes.class "mobile-navigation-list" ]
+                            navLinks
                         ]
                     ]
                 ]
@@ -154,6 +148,31 @@ type alias NavLink =
     , link : String
     , title : String
     }
+
+
+navLinks : List (Html msg)
+navLinks =
+    [ navLink
+        { label = "Install"
+        , link = "/install"
+        , title = "Get the compiler setup on your machine"
+        }
+    , navLink
+        { label = "Learn"
+        , link = "/learn"
+        , title = "Learn how to write Gren code"
+        }
+    , navLink
+        { label = "Community"
+        , link = "/community"
+        , title = "Ask questions, discuss ideas and contribute in our community"
+        }
+    , navLink
+        { label = "News"
+        , link = "/news"
+        , title = "Read the latest news from the core team"
+        }
+    ]
 
 
 navLink : NavLink -> Html msg
