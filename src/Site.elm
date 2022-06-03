@@ -46,7 +46,7 @@ head _ =
     , Head.icon favicon.sizes MimeType.Png favicon.src
     , Head.appleTouchIcon (Just 192) favicon.src
     , Head.sitemapLink "/sitemap.xml"
-    , Head.rssLink "/feed.xml"
+    , Head.rssLink "/news/feed.xml"
     ]
 
 
