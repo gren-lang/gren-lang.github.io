@@ -67,7 +67,7 @@ favicon =
 
 defaultImage : Seo.Image
 defaultImage =
-    { url = Url.external "/bigbird.png"
+    { url = Url.external "/external.png"
     , alt = "Gren logo"
     , dimensions = Nothing
     , mimeType = Just "image/png"
