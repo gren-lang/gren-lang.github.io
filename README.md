@@ -1,8 +1,8 @@
 # gren-lang.org
 
-Here is the source code for the gren-lang.org website.
+This is the source code for [gren-lang.org](https://gren-lang.org).
 
-The project is written in Elm, using elm-pages. Hosting is provided by github pages, and serves the contents of the `/docs` folder.
+The project is written in Elm, using elm-pages. Hosting is provided by github pages, served from the `/docs` folder.
 
 ## Local development
 
