@@ -68,25 +68,47 @@ view _ _ _ =
         [ Html.h3 []
             [ Html.text "Install" ]
         , Html.p []
-            [ Html.text "The latest version of Gren is 0.1.0. You can find the compiler binary for your OS at "
+            [ Html.text "The latest version of the Gren compiler is 0.1.0."
+            ]
+        , Html.p []
+            [ Html.text "There are several ways to install this on your system." ]
+        , Html.p []
+            [ Html.text "If you already have NodeJS and NPM installed on your system, the fastest way to get Gren installed is by downloading the "
+            , Html.a
+                [ Attribute.href "https://www.npmjs.com/package/gren-lang"
+                , Attribute.title "Download Gren from NPM"
+                ]
+                [ Html.text "NPM package" ]
+            , Html.text ". "
+            , Html.text "If you do, then you don't need to read the rest of this document."
+            ]
+        , Html.p []
+            [ Html.text "If you don't have, or prefer not to use, NPM then you can find pre-compiled binaries for Windows, Mac OS and Linux at "
             , Html.a
                 [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/v0.1.0"
                 , Attribute.title "Download the v0.1.0 compiler from Github"
                 ]
                 [ Html.text "GitHub" ]
-            , Html.text "."
-            ]
-        , Html.p []
-            [ Html.text "If you're interested in trying out the latest, though unstable, compiler then you can find builds of the main branch "
+            , Html.text ". "
+            , Html.text "If you're interested in trying out the latest unstable compiler, then you can find builds of the "
             , Html.a
                 [ Attribute.href "https://github.com/gren-lang/compiler/actions/workflows/releases.yml"
                 , Attribute.title "Download the latest compiler from Github"
                 ]
-                [ Html.text "here" ]
+                [ Html.text "main branch" ]
+            , Html.text " here as well."
+            ]
+        , Html.p []
+            [ Html.text "If none of these options work for you, then you can always build your own compiler "
+            , Html.a
+                [ Attribute.href "https://github.com/gren-lang/compiler"
+                , Attribute.title "Compile the compiler from source"
+                ]
+                [ Html.text "from source" ]
             , Html.text "."
             ]
         , Html.p []
-            [ Html.text "Once you have the binary, you'll need to give it permission to execute and place it somewhere in your PATH. Below is an example for Mac OS." ]
+            [ Html.text "Once you have the binary, you'll need to give it permission to execute and place it somewhere in your PATH. Below is an example for Mac OS:" ]
         , Html.pre []
             [ multilineHtmlText """
               chmod +x gren_mac
@@ -94,9 +116,12 @@ view _ _ _ =
               """
             ]
         , Html.p []
-            [ Html.text "You should now be able to execute the 'gren' command and see a friendly greeting." ]
+            [ Html.text "You should now be able to execute the "
+            , Html.code [] [ Html.text "gren" ]
+            , Html.text " command and see a friendly greeting."
+            ]
         , Html.p []
-            [ Html.text "If you don't know what to do next, check out the "
+            [ Html.text "If you haven't done so already, now is the time to check out the "
             , Html.a
                 [ Attribute.href "/learn"
                 , Attribute.title "language guide"
