@@ -96,7 +96,7 @@ view _ _ _ =
             [ Html.h3 []
                 [ Html.text "Efficiency" ]
             , Html.p []
-                [ Html.text "Gren produces small JavaScript files, and run surprisingly fast. Applications written in Gren can be both smaller and faster than your average React-based application." ]
+                [ Html.text "Gren produces small JavaScript files, and runs surprisingly fast. Applications written in Gren can be both smaller and faster than your average React-based application." ]
             ]
         ]
     }
