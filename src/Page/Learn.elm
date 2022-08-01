@@ -1,8 +1,6 @@
-module Page.Learn exposing (Data, Model, Msg, chapterBox, page)
+module Page.Learn exposing (Data, Model, Msg, page)
 
-import Data.GuideChapter as GuideChapter exposing (Chapter)
-import DataSource exposing (DataSource)
-import DataSource.File as File
+import DataSource
 import Head
 import Head.Seo as Seo
 import Html exposing (Html)
@@ -27,24 +25,16 @@ type alias RouteParams =
 
 
 type alias Data =
-    List Chapter
+    ()
 
 
 page : Page RouteParams Data
 page =
     Page.single
         { head = head
-        , data = data
+        , data = DataSource.succeed ()
         }
         |> Page.buildNoState { view = view }
-
-
-data : DataSource Data
-data =
-    GuideChapter.filePaths
-        |> DataSource.map
-            (List.map (\file -> File.bodyWithFrontmatter (GuideChapter.decoder file.name) file.path))
-        |> DataSource.resolve
 
 
 head :
@@ -67,12 +57,11 @@ view :
     -> Shared.Model
     -> StaticPayload Data RouteParams
     -> View msg
-view _ _ payload =
+view _ _ _ =
     { title = Site.subTitle "Learn"
     , body =
         [ Html.h3 []
             [ Html.text "Learn" ]
-        , chapterBox Nothing payload.data
         , resources
         ]
     }
@@ -82,12 +71,13 @@ resources : Html msg
 resources =
     Html.div []
         [ Html.p []
-            [ Html.text <|
-                String.trim """
-                Welcome to the official language guide. It covers everything from why
-                you would use Gren, to how you write your first application. To get started, just
-                click on a interesting topic in the table of contents.
-                """
+            [ Html.text "If you're new to the Gren programming language, the best way to learn is to read "
+            , Html.a
+                [ Attribute.href "https://gren-lang.org/book"
+                , Attribute.title "The Gren Programming Language"
+                ]
+                [ Html.text "the book" ]
+            , Html.text "."
             ]
         , Html.p []
             [ Html.text "Once you understand the basics, you might want to take a look at a few "
@@ -119,38 +109,6 @@ resources =
             ]
         , Html.p []
             [ Html.i []
-                [ Html.text "Note: This language guide is still a work in progress. Large sections are unfinished or simply missing. This will improve in time." ]
+                [ Html.text "Note: The book is still a work in progress. Large sections are unfinished or simply missing. This will improve in time." ]
             ]
         ]
-
-
-chapterBox : Maybe Chapter -> List Chapter -> Html msg
-chapterBox currentChapter chapters =
-    Html.details
-        [ Attribute.class "guide"
-        , Attribute.class "chapter-box"
-        ]
-        [ Html.summary
-            []
-            [ Html.text "Table of contents" ]
-        , Html.ul
-            []
-            (List.map (chapterLink currentChapter) chapters)
-        ]
-
-
-chapterLink : Maybe Chapter -> Chapter -> Html msg
-chapterLink currentChapter chapter =
-    if Maybe.withDefault False <| Maybe.map ((==) chapter) currentChapter then
-        Html.li []
-            [ Html.text chapter.title
-            ]
-
-    else
-        Html.li []
-            [ Html.a
-                [ Attribute.href <| "/learn/" ++ chapter.slug
-                , Attribute.title <| "Read '" ++ chapter.title ++ "'"
-                ]
-                [ Html.text chapter.title ]
-            ]

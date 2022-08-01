@@ -121,12 +121,12 @@ view _ _ _ =
             , Html.text " command and see a friendly greeting."
             ]
         , Html.p []
-            [ Html.text "If you haven't done so already, now is the time to check out the "
+            [ Html.text "If you haven't done so already, now is the time to "
             , Html.a
                 [ Attribute.href "/learn"
-                , Attribute.title "language guide"
+                , Attribute.title "learning resources"
                 ]
-                [ Html.text "official language guide" ]
+                [ Html.text "learn the language" ]
             , Html.text "."
             ]
         ]
