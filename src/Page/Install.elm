@@ -73,14 +73,14 @@ view _ _ _ =
         , Html.p []
             [ Html.text "There are several ways to install this on your system." ]
         , Html.p []
-            [ Html.text "If you already have NodeJS and NPM installed on your system, the fastest way to get Gren installed is by downloading the "
+            [ Html.text "If you already have NodeJS and NPM, the fastest way to get Gren is by downloading the "
             , Html.a
                 [ Attribute.href "https://www.npmjs.com/package/gren-lang"
                 , Attribute.title "Download Gren from NPM"
                 ]
                 [ Html.text "NPM package" ]
             , Html.text ". "
-            , Html.text "If you do, then you don't need to read the rest of this document."
+            , Html.text "If you do, then you can skip the rest of this document."
             ]
         , Html.p []
             [ Html.text "If you don't have, or prefer not to use, NPM then you can find pre-compiled binaries for Windows, Mac OS and Linux at "
