@@ -87,7 +87,7 @@ main > header .navigation-icon > input[type="checkbox"]:checked ~ .mobile-naviga
     main > header .navigation-list {
         display: block;
     }
-    
+
     main > header .navigation-icon {
         display: none;
     }
@@ -127,23 +127,6 @@ main > footer {
 main > footer small {
     display: block;
     text-align: center;
-}
-
-.guide.chapter-box {
-    display: block;
-    background-color: var(--background);
-    border: 0.1rem solid #d1d1d1;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.guide.chapter-box ul {
-    margin-top: 1.5rem;
-    margin-bottom: 0;
-}
-
-.guide.chapter-box li:last-child {
-    margin-bottom: 0;
 }
 
 article {
