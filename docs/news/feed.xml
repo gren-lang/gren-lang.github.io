@@ -3,16 +3,16 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Mon, 22 Aug 2022 10:55:18 +0000</lastBuildDate>
+<lastBuildDate>Mon, 22 Aug 2022 17:28:36 +0000</lastBuildDate>
 <generator>elm-pages</generator>
 <item>
 <title>Documentation as a first class citizen</title>
-<description>A crucial aspect of any programming language, is how easy it is to discover and learn new functionality. One of the most common questions asked since [Gren's first release in june](/news/220530_first_release) is "what can I do with Gren?" and "where can I see what's in the core package? I don't have to read the code, do I?".</description>
+<description>A crucial aspect of any programming language, is how easy it is to discover and learn new functionality. One of the most common questions asked since [Gren's first release](/news/220530_first_release) is "what can I do with Gren?" and "where can I see what's in the core package? I don't have to read the code, do I?".</description>
 <link>https://gren-lang.org/news/220822_documentation_as_a_first_class_citizen</link>
 <guid>https://gren-lang.org/news/220822_documentation_as_a_first_class_citizen</guid>
 <pubDate>Mon, 22 Aug 2022 00:00:00 GMT</pubDate>
 <content>
-A crucial aspect of any programming language, is how easy it is to discover and learn new functionality. One of the most common questions asked since [Gren's first release in june](/news/220530_first_release) is "what can I do with Gren?" and "where can I see what's in the core package? I don't have to read the code, do I?".
+A crucial aspect of any programming language, is how easy it is to discover and learn new functionality. One of the most common questions asked since [Gren's first release](/news/220530_first_release) is "what can I do with Gren?" and "where can I see what's in the core package? I don't have to read the code, do I?".
 
 Searching through github and reading source code is far from the easiest way to discover and learn the finer details of a language, so today we're proud to announce the availability of [packages.gren-lang.org](https://packages.gren-lang.org). Here you can learn the documentation of Gren's core packages, and discover third-party packages as they arrive.
 
