@@ -89,13 +89,13 @@ resources =
             , Html.text " to get a better idea on the sort of things you can do."
             ]
         , Html.p []
-            [ Html.text "You can also look at "
+            [ Html.text "You can discover, and learn, the core packages and other third party-packes at "
             , Html.a
-                [ Attribute.href "https://github.com/gren-lang"
-                , Attribute.title "Gren's GitHub Organization"
+                [ Attribute.href "https://packages.gren-lang.org"
+                , Attribute.title "Gren Packages"
                 ]
-                [ Html.text "Gren's GitHub Organization" ]
-            , Html.text " page to see all the different packages you can use in your applications."
+                [ Html.text "packages.gren-lang.org" ]
+            , Html.text ". This should give you a fair idea of everything possible to do with Gren."
             ]
         , Html.p []
             [ Html.text "If you need any help along the way, or just want to chat with other people "
