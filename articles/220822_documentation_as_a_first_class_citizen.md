@@ -3,7 +3,7 @@ title: "Documentation as a first class citizen"
 published: "2022-08-22"
 ---
 
-A crucial aspect of any programming language, is how easy it is to discover and learn new functionality. One of the most common questions asked since [Gren's first release in june](/news/220530_first_release) is "what can I do with Gren?" and "where can I see what's in the core package? I don't have to read the code, do I?".
+A crucial aspect of any programming language, is how easy it is to discover and learn new functionality. One of the most common questions asked since [Gren's first release](/news/220530_first_release) is "what can I do with Gren?" and "where can I see what's in the core package? I don't have to read the code, do I?".
 
 Searching through github and reading source code is far from the easiest way to discover and learn the finer details of a language, so today we're proud to announce the availability of [packages.gren-lang.org](https://packages.gren-lang.org). Here you can learn the documentation of Gren's core packages, and discover third-party packages as they arrive.
 

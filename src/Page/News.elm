@@ -7,9 +7,10 @@ import Head
 import Head.Seo as Seo
 import Html exposing (Html)
 import Html.Attributes as Attribute
+import Markdown.Parser
+import Markdown.Renderer
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
-import Pages.Url
 import Shared
 import Site
 import View exposing (View)
@@ -108,13 +109,27 @@ view _ _ static =
 
 viewArticle : Article -> Html msg
 viewArticle article =
+    let
+        renderedDescription =
+            case Markdown.Parser.parse article.description of
+                Ok markdown ->
+                    case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
+                        Ok html ->
+                            html
+
+                        Err _ ->
+                            [ Html.text article.description ]
+
+                Err _ ->
+                    [ Html.text article.description ]
+    in
     Html.article []
         [ Html.header []
             [ Html.h4 [] [ Html.text article.title ]
             , Html.small [] [ Html.text <| "Published: " ++ Date.toIsoString article.published ]
             ]
         , Html.p []
-            [ Html.text article.description ]
+            renderedDescription
         , Html.small []
             [ Html.a
                 [ Attribute.href <| "/news/" ++ article.slug
