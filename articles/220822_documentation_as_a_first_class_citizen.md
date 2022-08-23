@@ -7,23 +7,23 @@ A crucial aspect of any programming language, is how easy it is to discover and 
 
 Searching through github and reading source code is far from the easiest way to discover and learn the finer details of a language, so today we're proud to announce the availability of [packages.gren-lang.org](https://packages.gren-lang.org). Here you can learn the documentation of Gren's core packages, and discover third-party packages as they arrive.
 
-## Discoverability
+### Discoverability
 
 The packaging site provides full-text search to allow people to find a package by author, package name and keywords in the package summary. In addition, all recently updated packages are listed on the front page.
 
 If you're a member of our [Zulip](https://gren.zulipchat.com), new package versions are posted to the `#packages` topic, so that you can discover new packages as they arrive.
 
-## Previewing documentation
+### Previewing documentation
 
 When you install the package site with [npm](https://www.npmjs.com/package/gren-packages) (`npm install -g gren-packages`), you get access to a binary called `gren-doc-preview` which will generate documentation for the package in your current directory, and host a local copy of the packaging site to display it. This let's you see exactly how the documentation will look when imported into the main packaging site, which helps you perfect your documentation with minimal effort.
 
-## Easy to self-host
+### Easy to self-host
 
 The packaging site is easy to self-host. It runs on Node 16 and uses SQLite as its database. You can run it on your own machine in order to have access to documentation offline, or you can host it on a server to host the documentation for your private packages.
 
 Just like the Gren compiler, the packages site uses your local install of Git to retrieve packages from Github. As long as your git client has access to a Gren repo, the packages site can import it as well.
 
-## Future enhancements
+### Future enhancements
 
 Today marks the first release, but it certaintly won't be the last. Several new features are planned for the future, like being able to mirror another package server, extensive caching and recursive imports of the dependencies of a package.
 

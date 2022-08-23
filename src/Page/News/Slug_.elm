@@ -104,7 +104,7 @@ view _ _ static =
                 case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
                     Ok html ->
                         Html.header []
-                            [ Html.h3 [] [ Html.text article.title ]
+                            [ Html.h2 [] [ Html.text article.title ]
                             , Html.small [] [ Html.text <| "Published: " ++ Date.toIsoString article.published ]
                             ]
                             :: html
