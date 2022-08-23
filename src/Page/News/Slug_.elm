@@ -103,11 +103,19 @@ view _ _ static =
             Ok markdown ->
                 case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
                     Ok html ->
-                        Html.header []
+                        [ Html.header []
                             [ Html.h2 [] [ Html.text article.title ]
                             , Html.small [] [ Html.text <| "Published: " ++ Date.toIsoString article.published ]
                             ]
-                            :: html
+                        , Html.p []
+                            [ Html.i []
+                                [ Html.text <|
+                                    "Gren is a pure functional programmming language that aims to be easy-to-learn and "
+                                        ++ "easy to reason about, while remaining powerful and portable enough for real-world use."
+                                ]
+                            ]
+                        ]
+                            ++ html
 
                     Err _ ->
                         [ Html.text "Failed to render markdown" ]
