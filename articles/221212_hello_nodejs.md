@@ -7,11 +7,11 @@ Six months after the release of 0.1, a new release is here with a bunch of excit
 
 ## Platforms
 
-When defining new projects, you now need to specify which platform you're targetting. There are three platforms to choose from: `common`, `browser` and `node`. The latter two decides where the application can run, wheras the `common` platform indicates that your code can run anywhere. Packages targetting the `common` platform can be dependencies of either `browser` and `node` projects.
+When defining new projects, you now need to specify which platform you're targeting. There are three platforms to choose from: `common`, `browser` and `node`. The latter two decide where the application can run, wheras the `common` platform indicates that your code can run anywhere. Packages targeting the `common` platform can be dependencies of either `browser` and `node` projects.
 
-In practical terms, the platform setting decides which core packages you're allowed to import. If you're targetting the `browser` platform, you're _not_ allowed to depend on `gren-lang/node` in your project, directly or indirectly. Likewise, a project targetting the `node` platform is forbidden from depending on `gren-lang/browser`. When targetting the `common` platform, you can depend on neither.
+In practical terms, the platform setting decides which core packages you're allowed to import. If you're targeting the `browser` platform, you're _not_ allowed to depend on `gren-lang/node` in your project, directly or indirectly. Likewise, a project targeting the `node` platform is forbidden from depending on `gren-lang/browser`. When targeting the `common` platform, you can depend on neither.
 
-In order to make it easier to setup a project correctly, we've added two flags to the `gren init` command: `--package` and `--platform`. For instance, if you want to create a package project targetting the `node` platform, you can run:
+In order to make it easier to setup a project correctly, we've added two flags to the `gren init` command: `--package` and `--platform`. For instance, if you want to create a package project targeting the `node` platform, you can run:
 
 ```sh
 gren init --package --platform node
@@ -21,7 +21,7 @@ If you'd rather create a `node` application, then just leave out the `--package`
 
 ## Formatting
 
-Aaron Vanderhaar, the author of `elm-format`, started working a formatting tool for Gren already before 0.1 was released. Starting with Gren 0.2, a `format` command is built into the compiler.
+Aaron VonderHaar, the author of `elm-format`, started working a formatting tool for Gren already before 0.1 was released. Starting with Gren 0.2, a `format` command is built into the compiler.
 
 To format your project, simply run `gren format`. To validate the format of a project, just run `gren format --validate`.
 
@@ -63,15 +63,15 @@ However, any other expression was not legal. So you couldn't do things like this
 updatedRecord = { OtherModule.originalRecord | value "updated" }
 ```
 
-This is one of the only places where we have such limitations. For instance, we don't limit what expressions you can have in `if` expressions or `case` expressions, or even inside literals, so it's confusing when a limitation like this exist.
+This is one of the only places where we have such limitations. For instance, we don't limit what expressions you can have in `if` expressions or `case` expressions, or even inside literals, so it's confusing when a limitation like this exists.
 
-In 0.2, you can now use record update syntax with _any_ expression. The above snippet will now compile, but so will much more compex expressions.
+In 0.2, you can now use record update syntax with _any_ expression. The above snippet will now compile, but so will much more complex expressions.
 
-This change was contributed by Julian Antionelli.
+This change was contributed by Julian Antonielli.
 
 ### Import aliases can now contain dots
 
-Exactly what it says on the tin, the following import statement is now legal.
+Exactly what it says on the tin, the following import statement is now legal:
 
 ```gren
 import Much.Nested.Module.Path as Nested.Path
@@ -121,7 +121,7 @@ str = "\n    this\n      is a\n    string\n"
 In 0.2, multi-line strings trims away a common number of leading whitespace on each line, so that the multi-line string compiles to the equivalent of:
 
 ```gren
-str = "this\n  is a\n string"
+str = "this\n  is a\nstring"
 ```
 
 ## What's next?
