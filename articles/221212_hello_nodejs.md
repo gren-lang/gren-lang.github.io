@@ -3,7 +3,7 @@ title: "Gren 0.2: Hello, NodeJS"
 published: "2022-12-12"
 ---
 
-Six months after the release of 0.1, a new release is here with a bunch of exciting features. This includes a built-in code formatter and basic support for creating applications that run on Node.JS.
+Six months after the release of 0.1, a new release is here with a bunch of exciting features. This includes a built-in code formatter and basic support for creating applications that run on NodeJS.
 
 ## Platforms
 
