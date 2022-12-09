@@ -87,14 +87,14 @@ view _ _ _ =
                 [ Attribute.href "https://fosstodon.org/@gren_lang"
                 , Attribute.title "Follow us on Mastodon"
                 ]
-                [ Html.text "mastodon account" ]
+                [ Html.text "Mastodon account" ]
             , Html.text " might be worth following if you want to be notified of anything interesting "
             , Html.text "every once in a while. Alternatively, you can also follow us on "
             , Html.a
                 [ Attribute.href "https://twitter.com/gren_lang"
                 , Attribute.title "Follow us on Twitter"
                 ]
-                [ Html.text "twitter" ]
+                [ Html.text "Twitter" ]
             , Html.text "."
             ]
         , Html.p

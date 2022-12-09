@@ -133,3 +133,5 @@ str = "this\n  is a\nstring"
 The 0.2 release is a big release, but we have no intention of stopping here. The 0.3 release will focus on testing & debugging, and will include features such as an official test framework, source maps for viewing Gren code in a JavaScript debugger and improved code generation.
 
 Since Gren will continue with its six-month release cadence, 0.3 is scheduled for release in June 2023.
+
+That's it for now. Head over to the [install page](/install) to get started.
