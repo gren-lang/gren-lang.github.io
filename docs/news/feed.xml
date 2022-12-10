@@ -3,7 +3,7 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Fri, 09 Dec 2022 19:31:56 +0000</lastBuildDate>
+<lastBuildDate>Sat, 10 Dec 2022 11:23:06 +0000</lastBuildDate>
 <generator>elm-pages</generator>
 <item>
 <title>Gren 0.2: Hello, NodeJS</title>
@@ -35,6 +35,8 @@ The long-term goal is to support all built-in NodeJS API's, but currently we onl
 Aaron VonderHaar, the author of `elm-format`, was working on a formatting tool for Gren before 0.1 was even released. With Gren 0.2, this tool is now ready to use.
 
 To format your project, simply run `gren format`. To validate the formatting of a project, just run `gren format --validate`.
+
+While the formatter should work well enough for most projects, it's not finished. Bugs and less-than-stellar formatting is to be expected in some cases. If you come across any interesting behaviour, please let us know.
 
 ## Package consolidation
 
@@ -73,7 +75,7 @@ updatedRecord = { originalRecord | value = "updated" }
 However, any other expression isn't legal. So you can't do things like this:
 
 ```gren
-updatedRecord = { OtherModule.originalRecord | value "updated" }
+updatedRecord = { OtherModule.originalRecord | value = "updated" }
 ```
 
 This is one of the only places where we have such limitations. For instance, we don't limit what expressions you can have in `if` expressions or `case` expressions, or even inside literals. So it's confusing when a limitation like this exists.
@@ -108,7 +110,7 @@ length array =
     Array.foldl (\_value len -> len + 1) 0 array
 ```
 
-Do note: trying to use `_value` will trigger a compilation error.
+Note: trying to use `_value` will trigger a compilation error.
 
 This feature was contributed by Allan Clark.
 

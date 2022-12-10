@@ -27,6 +27,8 @@ Aaron VonderHaar, the author of `elm-format`, was working on a formatting tool f
 
 To format your project, simply run `gren format`. To validate the formatting of a project, just run `gren format --validate`.
 
+While the formatter should work well enough for most projects, it's not finished. Bugs and less-than-stellar formatting is to be expected in some cases. If you come across any interesting behaviour, please let us know.
+
 ## Package consolidation
 
 Several different packages have now been consolidated into fewer, but bigger packages. For example: `gren-lang/virtual-dom`, `gren-lang/html` and `gren-lang/svg` are now merged into `gren-lang/browser`.
@@ -99,7 +101,7 @@ length array =
     Array.foldl (\_value len -> len + 1) 0 array
 ```
 
-Do note: trying to use `_value` will trigger a compilation error.
+Note: trying to use `_value` will trigger a compilation error.
 
 This feature was contributed by Allan Clark.
 
