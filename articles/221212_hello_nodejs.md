@@ -64,7 +64,7 @@ updatedRecord = { originalRecord | value = "updated" }
 However, any other expression isn't legal. So you can't do things like this:
 
 ```gren
-updatedRecord = { OtherModule.originalRecord | value "updated" }
+updatedRecord = { OtherModule.originalRecord | value = "updated" }
 ```
 
 This is one of the only places where we have such limitations. For instance, we don't limit what expressions you can have in `if` expressions or `case` expressions, or even inside literals. So it's confusing when a limitation like this exists.
