@@ -21,6 +21,8 @@ If you'd rather create a `node` application, then just leave out the `--package`
 
 The long-term goal is to support all built-in NodeJS API's, but currently we only support a small subset. To get a better idea of what's possible you can read the [gren-lang/node documentation](https://packages.gren-lang.org/package/gren-lang/node) or take a look at the [cat example program](https://github.com/gren-lang/example-projects/tree/main/cat).
 
+You might also want to take a look at this [live demo](https://www.youtube.com/watch?v=IGEOvIHDlBI) where Robin implements the unix echo program in Gren.
+
 ## Formatting
 
 Aaron VonderHaar, the author of `elm-format`, was working on a formatting tool for Gren before 0.1 was even released. With Gren 0.2, this tool is now ready to use.
