@@ -3,7 +3,7 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Sat, 10 Dec 2022 11:23:06 +0000</lastBuildDate>
+<lastBuildDate>Mon, 12 Dec 2022 12:55:13 +0000</lastBuildDate>
 <generator>elm-pages</generator>
 <item>
 <title>Gren 0.2: Hello, NodeJS</title>
@@ -29,6 +29,8 @@ gren init --package --platform node
 If you'd rather create a `node` application, then just leave out the `--package` flag.
 
 The long-term goal is to support all built-in NodeJS API's, but currently we only support a small subset. To get a better idea of what's possible you can read the [gren-lang/node documentation](https://packages.gren-lang.org/package/gren-lang/node) or take a look at the [cat example program](https://github.com/gren-lang/example-projects/tree/main/cat).
+
+You might also want to take a look at this [live demo](https://www.youtube.com/watch?v=IGEOvIHDlBI) where Robin implements the unix echo program in Gren.
 
 ## Formatting
 
