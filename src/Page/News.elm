@@ -90,16 +90,16 @@ view _ _ static =
             [ Html.text "For more news regarding the community, development of Gren"
             , Html.text " and other things, consider following us on "
             , Html.a
+                [ Attribute.href "https://fosstodon.org/@gren_lang"
+                , Attribute.title "Follow us on Mastodon"
+                ]
+                [ Html.text "Mastodon" ]
+            , Html.text " or "
+            , Html.a
                 [ Attribute.href "https://twitter.com/gren_lang"
                 , Attribute.title "Follow us on Twitter"
                 ]
                 [ Html.text "Twitter" ]
-            , Html.text " and join our "
-            , Html.a
-                [ Attribute.href "https://gren.zulipchat.com/"
-                , Attribute.title "Join our Zulip"
-                ]
-                [ Html.text "Zulip" ]
             , Html.text "."
             ]
         ]
