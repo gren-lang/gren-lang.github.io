@@ -3,7 +3,7 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Mon, 12 Dec 2022 12:55:13 +0000</lastBuildDate>
+<lastBuildDate>Wed, 25 Jan 2023 20:01:20 +0000</lastBuildDate>
 <generator>elm-pages</generator>
 <item>
 <title>Gren 0.2: Hello, NodeJS</title>
@@ -11,180 +11,13 @@
 <link>https://gren-lang.org/news/221212_hello_nodejs</link>
 <guid>https://gren-lang.org/news/221212_hello_nodejs</guid>
 <pubDate>Mon, 12 Dec 2022 00:00:00 GMT</pubDate>
-<content>
-Six months after the release of 0.1, a new release is here with a bunch of exciting features. This includes a built-in code formatter and basic support for creating applications that run on NodeJS.
-
-## Platforms
-
-When defining new projects, you now need to specify which platform you're targeting. There are three platforms to choose from: `common`, `browser` and `node`. The latter two decide where the application can run, wheras the `common` platform indicates that your code can run anywhere. In other words, packages targeting the `common` platform can be dependencies of either `browser` and `node` projects.
-
-In practical terms, the platform setting decides which core packages you're allowed to depend on. If you're targeting the `browser` platform, you're _not_ allowed to depend on `gren-lang/node`, directly or indirectly. Likewise, a project targeting the `node` platform is forbidden from depending on `gren-lang/browser`. When targeting the `common` platform, you can depend on neither.
-
-In order to make it easier to setup a project correctly, we've added two flags to the `gren init` command: `--package` and `--platform`. For instance, if you want to create a package project targeting the `node` platform, you can run:
-
-```sh
-gren init --package --platform node
-```
-
-If you'd rather create a `node` application, then just leave out the `--package` flag.
-
-The long-term goal is to support all built-in NodeJS API's, but currently we only support a small subset. To get a better idea of what's possible you can read the [gren-lang/node documentation](https://packages.gren-lang.org/package/gren-lang/node) or take a look at the [cat example program](https://github.com/gren-lang/example-projects/tree/main/cat).
-
-You might also want to take a look at this [live demo](https://www.youtube.com/watch?v=IGEOvIHDlBI) where Robin implements the unix echo program in Gren.
-
-## Formatting
-
-Aaron VonderHaar, the author of `elm-format`, was working on a formatting tool for Gren before 0.1 was even released. With Gren 0.2, this tool is now ready to use.
-
-To format your project, simply run `gren format`. To validate the formatting of a project, just run `gren format --validate`.
-
-While the formatter should work well enough for most projects, it's not finished. Bugs and less-than-stellar formatting is to be expected in some cases. If you come across any interesting behaviour, please let us know.
-
-## Package consolidation
-
-Several different packages have now been consolidated into fewer, but bigger packages. For example: `gren-lang/virtual-dom`, `gren-lang/html` and `gren-lang/svg` are now merged into `gren-lang/browser`.
-
-The main reason for doing this has to do with project management. It's easier for me to deal with 5 bug trackers than 15, and it takes less time to migrate and publish 5 packages to Gren 0.2, instead of 15.
-
-At the same time, there aren't really any downsides to developers. Fewer packages means less time being spent downloading packages, and since Gren has excellent dead-code elimination, your compiled output isn't getting bigger either.
-
-Everything hasn't been consolidated, though. `gren-lang/url`, `gren-lang/parser` and `gren-lang/web-storage` do still exist and will continue to do so until I'm certain that their API is stable enough to be consolidated into one of the "big three" packages.
-
-Going forward, new functionality is likely to be introduced in standalone packages, then become merged into the right platform package when the API has stabilized.
-
-## Package management
-
-The package manager has improved in almost every way.
-
-It is now significantly faster, gives detailed error messages when you have incompatible dependencies in your project, and has learned a few new tricks to make it easier to manage your dependencies.
-
-There's now a `gren package uninstall` command for removing a dependency from your project, as well as `gren package outdated` for seeing which dependencies are out of date.
-
-## New language features
-
-Gren 0.2 also brings a few new language features. These don't radically change the language in any way, but provide small quality-of-life improvements.
-
-### Record update now works on any expression
-
-In 0.1, record update syntax only worked on variable names, like this:
-
-```gren
-originalRecord = { value = "original" }
-
-updatedRecord = { originalRecord | value = "updated" }
-```
-
-However, any other expression isn't legal. So you can't do things like this:
-
-```gren
-updatedRecord = { OtherModule.originalRecord | value = "updated" }
-```
-
-This is one of the only places where we have such limitations. For instance, we don't limit what expressions you can have in `if` expressions or `case` expressions, or even inside literals. So it's confusing when a limitation like this exists.
-
-In 0.2, you can now use record update syntax with _any_ expression. The above snippet will now compile, but so will much more complex expressions.
-
-This change was contributed by Julian Antonielli.
-
-### Import aliases can now contain dots
-
-Exactly what it says on the tin, the following import statement is now legal:
-
-```gren
-import Much.Nested.Module.Path as Nested.Path
-```
-
-### Named unused constants
-
-When pattern matching or defining functions, you can use `_` to ignore a value. Here's an example:
-
-```gren
-length : Array a -> Int
-length array =
-    Array.foldl (\_ len -> len + 1) 0 array
-```
-
-Sometimes, it can be helpful to attach a name to the ignored value, as a reminder for what the value represents. In 0.2, you can do just that:
-
-```gren
-length : Array a -> Int
-length array =
-    Array.foldl (\_value len -> len + 1) 0 array
-```
-
-Note: trying to use `_value` will trigger a compilation error.
-
-This feature was contributed by Allan Clark.
-
-### Multi-line strings trims leading whitespace
-
-Gren has dedicated syntax for defining a multi-line string. It looks like this:
-
-```gren
-str =
-    """
-    this
-      is a
-    string
-    """
-```
-
-In 0.1, this is equivalent to
-
-```gren
-str = "\n    this\n      is a\n    string\n"
-```
-
-In 0.2, multi-line strings trims away a common number of leading whitespace on each line, so that the multi-line string compiles to the equivalent of:
-
-```gren
-str = "this\n  is a\nstring"
-```
-
-## What's next?
-
-The 0.2 release is a big release, but we have no intention of stopping here. The 0.3 release will focus on testing & debugging, and will include features such as an official test framework, source maps for viewing Gren code in a JavaScript debugger and improved code generation.
-
-Since Gren will continue with its six-month release cadence, 0.3 is scheduled for release in June 2023.
-
-That's it for now. Head over to the [install page](/install) to get started.
-</content>
 </item>
 <item>
 <title>Documentation as a first class citizen</title>
-<description>A crucial aspect of any programming language, is how easy it is to discover and learn new functionality. One of the most common questions asked since [Gren's first release](/news/220530_first_release) is "what can I do with Gren?" and "where can I see what's in the core package? I don't have to read the code, do I?".</description>
+<description>A crucial aspect of any programming language, is how easy it is to discover and learn new functionality.</description>
 <link>https://gren-lang.org/news/220822_documentation_as_a_first_class_citizen</link>
 <guid>https://gren-lang.org/news/220822_documentation_as_a_first_class_citizen</guid>
 <pubDate>Mon, 22 Aug 2022 00:00:00 GMT</pubDate>
-<content>
-A crucial aspect of any programming language, is how easy it is to discover and learn new functionality. One of the most common questions asked since [Gren's first release](/news/220530_first_release) is "what can I do with Gren?" and "where can I see what's in the core package? I don't have to read the code, do I?".
-
-Searching through github and reading source code is far from the easiest way to discover and learn the finer details of a language, so today we're proud to announce the availability of [packages.gren-lang.org](https://packages.gren-lang.org). Here you can learn the documentation of Gren's core packages, and discover third-party packages as they arrive.
-
-### Discoverability
-
-The packaging site provides full-text search to allow people to find a package by author, package name and keywords in the package summary. In addition, all recently updated packages are listed on the front page.
-
-If you're a member of our [Zulip](https://gren.zulipchat.com), new package versions are posted to the `#packages` topic, so that you can discover new packages as they arrive.
-
-### Previewing documentation
-
-When you install the package site with [npm](https://www.npmjs.com/package/gren-packages) (`npm install -g gren-packages`), you get access to a binary called `gren-doc-preview` which will generate documentation for the package in your current directory, and host a local copy of the packaging site to display it. This let's you see exactly how the documentation will look when imported into the main packaging site, which helps you perfect your documentation with minimal effort.
-
-### Easy to self-host
-
-The packaging site is easy to self-host. It runs on Node 16 and uses SQLite as its database. You can run it on your own machine in order to have access to documentation offline, or you can host it on a server to host the documentation for your private packages.
-
-Just like the Gren compiler, the packages site uses your local install of Git to retrieve packages from Github. As long as your git client has access to a Gren repo, the packages site can import it as well.
-
-### Future enhancements
-
-Today marks the first release, but it certaintly won't be the last. Several new features are planned for the future, like being able to mirror another package server, extensive caching and recursive imports of the dependencies of a package.
-
-We believe that this new packaging site will enable new developers to discover new packages and learn how those packages work.
-
-As always, if you've got some idea on how to improve it, we hope to discuss it further on our [Zulip](https://gren.zulipchat.com). See you there?
-</content>
 </item>
 <item>
 <title>Gren 0.1.0 is released</title>
@@ -192,60 +25,6 @@ As always, if you've got some idea on how to improve it, we hope to discuss it f
 <link>https://gren-lang.org/news/220530_first_release</link>
 <guid>https://gren-lang.org/news/220530_first_release</guid>
 <pubDate>Mon, 30 May 2022 00:00:00 GMT</pubDate>
-<content>
-Today marks the first release of Gren, a programming language that helps you write simple and correct software.
-
-Gren aims to be a small language that is easy to learn, and easy to understand. It wants to help you write correct software by being your assistant, pointing out likely mistakes as you write code. Finally, it tries to be available wherever you need it to be, so that you can use it to write CLI tools, backend- or even frontend applications.
-
-There already exist a language that is close to matching this description: [Elm](https://elm-lang.org). What Elm lacks is better support for Web API's, and official support for running outside the browser.
-
-While we could spend considerable time and effort in creating a language which would look very similar to Elm, we've instead decided to fork the compiler and core packages, and use that as the basis of Gren.
-
-### Differences from Elm
-
-If you already know Elm, then you also know Gren. Even the core packages are similar. That said, there are some differences:
-
-* A git-based package manager. It's slower, but has access to any github repo that you have, even private ones.
-* Extended support for pattern matching on records.
-* The default sequential data structure is an immutable array, not a linked list.
-* No tuples.
-* No automatic constructors for type aliased records.
-* No GLSL syntax.
-* No reactor.
-
-If you have no experience with Elm, you can read more about the language in our official [guide](/learn). If you'd like to try it out, you can find instructions on getting started [here](/install).
-
-Version 0.1.0 is considered to be an alpha release. While you can write production quality software with it today, there are likely bugs in the compiler and core packages, and breaking changes are planned for the next release.
-
-If you like what you see, consider joining the [community](/community). We can use all the help we can get.
-
-### Looking forward
-
-Gren follows a six-month release cadence. The next release will be v0.2.0 and be made available in December.
-
-The plan is to add support for more Web API's and basic support for applications running on the NodeJS runtime. In addition, the package manager will become more efficient and reliable.
-
-### Thank you, contributors
-
-This release of Gren was made possible by people who've written new code, ported packages from Elm and provided valuable feedback on [Zulip](https://gren.zulipchat.com). Those people are, in alphabetic order:
-
-* Aaron VonderHaar
-* Allan Clark
-* Dimitri B.
-* Gabriella Sartori
-* Gaute Berge
-* Harry Sarson
-* Jeroen Engels
-* Joaquin
-* Julian Antonielli
-* Lue
-* Mario Rogic
-* Oliver Schöning
-* Ragnhild Aalvik
-* Robin Heggelund Hansen
-
-Thank you!
-</content>
 </item>
 </channel>
 </rss>
