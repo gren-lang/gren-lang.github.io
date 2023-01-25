@@ -60,7 +60,7 @@ newsDataSource =
                     , categories = []
                     , author = "Robin Heggelund Hansen"
                     , pubDate = Rss.Date article.published
-                    , content = Just article.body
+                    , content = Nothing
                     , contentEncoded = Nothing
                     , enclosure = Nothing
                     }
