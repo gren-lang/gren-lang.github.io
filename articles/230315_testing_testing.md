@@ -3,7 +3,7 @@ title: "Gren 0.2.1: Testing, testing"
 published: "2023-03-15"
 ---
 
-The theme for Gren 0.3 is "Testing and Debugging". The original plan was to release Gren 0.3 this summer but, while this is still the goal, we've implemented enough functionality to warrant a new release.
+The original plan was to not do another release until Gren 0.3 this summer but, while this is still the goal, we've implemented enough functionality to warrant a new release today. The theme for Gren 0.3 is "Testing and Debugging", and Gren 0.2.1 delivers on the first half of this theme.
 
 ## Local dependencies
 
@@ -34,16 +34,16 @@ Gren 0.2.1 adds support for local dependencies. Local dependencies are packages 
 
 The above `gren.json` is taken from the `test` folder of [gren-lang/core](https://github.com/gren-lang/core). As you can see, `gren-lang/core` is here defined as local dependency where the package is defined to reside in the parent folder.
 
-Local dependencies has several limitations. The compiler will refuse to compile packages which have local dependencies, and `gren package validate` will fail if a local dependency is defined.
+Local dependencies has several limitations. The compiler will refuse to compile dependencies which themselves have local dependencies, and `gren package validate` will fail if a local dependency is defined./a
 Gren will also refuse to compile local dependencies which contain kernel code, that isn't also part of a git commit signed by Gren's lead developer.
 
 ## An official test framework
 
-Gren now have two packages allowing you to test your implementation. 
+Gren now has two packages allowing you to test your implementation. 
 
 [gren-lang/test](https://packages.gren-lang.org/package/gren-lang/test) is a port of [elm-exploration/test](https://package.elm-lang.org/packages/elm-explorations/test/latest), and is a package for defining tests.
 
-[gren-lang/test-runner-node](https://packages.gren-lang.org/package/gren-lang/test-runner-node) allows you to define a `node` application that runs your defined tests.
+[gren-lang/test-runner-node](https://packages.gren-lang.org/package/gren-lang/test-runner-node) allows you to define a Node.JS application that runs your defined tests.
 
 A minimal test program looks like the following:
 
@@ -60,6 +60,13 @@ main =
             [ test "Always true" <| \_ ->
                 Expect.pass
             ]
+```
+
+To run it, you need to do the following:
+
+```sh
+gren compile src/Main.gren --output run_tests
+node run_tests
 ```
 
 In order to write tests for your package, you can define a test application that imports your package as a local dependency.
