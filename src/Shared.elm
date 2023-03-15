@@ -137,7 +137,7 @@ view _ _ _ _ pageView =
             , Html.footer []
                 [ Html.small
                     [ Attributes.class "container" ]
-                    [ Html.text "Copyright © 2022, The Gren Contributors" ]
+                    [ Html.text "Copyright © 2023, The Gren Contributors" ]
                 ]
             ]
     }
