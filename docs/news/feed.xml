@@ -3,8 +3,15 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Wed, 25 Jan 2023 20:01:20 +0000</lastBuildDate>
+<lastBuildDate>Wed, 15 Mar 2023 10:58:26 +0000</lastBuildDate>
 <generator>elm-pages</generator>
+<item>
+<title>Gren 0.2.1: Testing, testing</title>
+<description>The original plan was to not do another release until Gren 0.3 this summer but, while this is still the goal, we&apos;ve implemented enough functionality to warrant a new release today. The theme for Gren 0.3 is &quot;Testing and Debugging&quot;, and Gren 0.2.1 delivers on the first half of this theme.</description>
+<link>https://gren-lang.org/news/230315_testing_testing</link>
+<guid>https://gren-lang.org/news/230315_testing_testing</guid>
+<pubDate>Wed, 15 Mar 2023 00:00:00 GMT</pubDate>
+</item>
 <item>
 <title>Gren 0.2: Hello, NodeJS</title>
 <description>Six months after the release of 0.1, a new release is here with a bunch of exciting features. This includes a built-in code formatter and basic support for creating applications that run on NodeJS.</description>
