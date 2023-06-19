@@ -68,10 +68,10 @@ view _ _ _ =
         [ Html.h3 []
             [ Html.text "Install" ]
         , Html.p []
-            [ Html.text "The latest version of the Gren compiler is 0.2.1 ("
+            [ Html.text "The latest version of the Gren compiler is 0.3.0 ("
             , Html.a
-                [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.2.1"
-                , Attribute.title "Read the changelog for 0.2.1"
+                [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.3.0"
+                , Attribute.title "Read the changelog for 0.3.0"
                 ]
                 [ Html.text "changelog" ]
             , Html.text ")."
@@ -91,8 +91,8 @@ view _ _ _ =
         , Html.p []
             [ Html.text "If you don't have, or prefer not to use, NPM then you can find pre-compiled binaries for Windows, Mac OS and Linux at "
             , Html.a
-                [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.2.1"
-                , Attribute.title "Download the 0.2.1 compiler from Github"
+                [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.3.0"
+                , Attribute.title "Download the 0.3.0 compiler from Github"
                 ]
                 [ Html.text "GitHub" ]
             , Html.text ". "
