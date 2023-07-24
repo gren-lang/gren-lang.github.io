@@ -77,8 +77,8 @@ view _ _ _ =
                 ]
                 [ Html.text "Zulip" ]
             , Html.text " is the official meeting place for people who are curious about Gren. "
-            , Html.text "The core team posts weekly development updates here, and there are also "
-            , Html.text "channels for beginners to ask questions, and for random discussion."
+            , Html.text "The core team posts development updates there at regular intervals, and there are "
+            , Html.text "channels for people to ask questions."
             ]
         , Html.p
             []
@@ -89,13 +89,7 @@ view _ _ _ =
                 ]
                 [ Html.text "Mastodon account" ]
             , Html.text " might be worth following if you want to be notified of anything interesting "
-            , Html.text "every once in a while. Alternatively, you can also follow us on "
-            , Html.a
-                [ Attribute.href "https://twitter.com/gren_lang"
-                , Attribute.title "Follow us on Twitter"
-                ]
-                [ Html.text "Twitter" ]
-            , Html.text "."
+            , Html.text "every once in a while."
             ]
         , Html.p
             []

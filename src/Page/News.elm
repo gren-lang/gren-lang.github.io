@@ -94,12 +94,6 @@ view _ _ static =
                 , Attribute.title "Follow us on Mastodon"
                 ]
                 [ Html.text "Mastodon" ]
-            , Html.text " or "
-            , Html.a
-                [ Attribute.href "https://twitter.com/gren_lang"
-                , Attribute.title "Follow us on Twitter"
-                ]
-                [ Html.text "Twitter" ]
             , Html.text "."
             ]
         ]
