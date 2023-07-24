@@ -108,22 +108,21 @@ viewArticle article =
             case Markdown.Parser.parse article.description of
                 Ok markdown ->
                     case Markdown.Renderer.render Markdown.Renderer.defaultHtmlRenderer markdown of
-                        Ok html ->
+                        Ok [ html ] ->
                             html
 
-                        Err _ ->
-                            [ Html.text article.description ]
+                        _ ->
+                            Html.p [] [ Html.text article.description ]
 
                 Err _ ->
-                    [ Html.text article.description ]
+                    Html.p [] [ Html.text article.description ]
     in
     Html.article []
         [ Html.header []
             [ Html.h4 [] [ Html.text article.title ]
             , Html.small [] [ Html.text <| "Published: " ++ Date.toIsoString article.published ]
             ]
-        , Html.p []
-            renderedDescription
+        , renderedDescription
         , Html.small []
             [ Html.a
                 [ Attribute.href <| "/news/" ++ article.slug
