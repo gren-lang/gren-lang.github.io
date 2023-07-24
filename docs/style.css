@@ -93,6 +93,10 @@ main > header .navigation-icon > input[type="checkbox"]:checked ~ .mobile-naviga
     }
 }
 
+main > .content > #banner {
+    margin-bottom: 7rem;
+}
+
 main > .content > #banner > img {
     display: block;
     max-width: 65%;
@@ -130,7 +134,7 @@ main > footer small {
 }
 
 article {
-    margin-top: 7rem;
+    margin-top: 4rem;
 }
 
 article > header {
