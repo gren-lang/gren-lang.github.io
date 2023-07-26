@@ -4,6 +4,7 @@ import Browser.Navigation
 import DataSource
 import Html exposing (Html)
 import Html.Attributes as Attributes
+import Html.Events as Events
 import Pages.Flags
 import Pages.PageUrl exposing (PageUrl)
 import Path exposing (Path)
@@ -37,11 +38,12 @@ type alias Data =
 
 
 type SharedMsg
-    = NoOp
+    = SetMenuOpen Bool
 
 
 type alias Model =
-    {}
+    { menuOpen : Bool
+    }
 
 
 init :
@@ -59,7 +61,8 @@ init :
             }
     -> ( Model, Cmd Msg )
 init _ _ _ =
-    ( {}
+    ( { menuOpen = False
+      }
     , Cmd.none
     )
 
@@ -68,10 +71,14 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         OnPageChange _ ->
-            ( model, Cmd.none )
+            ( { model | menuOpen = False }
+            , Cmd.none
+            )
 
-        SharedMsg _ ->
-            ( model, Cmd.none )
+        SharedMsg (SetMenuOpen newValue) ->
+            ( { model | menuOpen = newValue }
+            , Cmd.none
+            )
 
 
 subscriptions : Path -> Model -> Sub Msg
@@ -94,7 +101,7 @@ view :
     -> (Msg -> msg)
     -> View msg
     -> { body : Html msg, title : String }
-view _ _ _ _ pageView =
+view _ _ model msgMap pageView =
     { title = pageView.title
     , body =
         Html.main_ []
@@ -123,6 +130,8 @@ view _ _ _ _ pageView =
                         , Html.input
                             [ Attributes.id "navigation-menu-checkbox"
                             , Attributes.type_ "checkbox"
+                            , Attributes.checked model.menuOpen
+                            , Events.onCheck (msgMap << SharedMsg << SetMenuOpen)
                             ]
                             []
                         , Html.ul
