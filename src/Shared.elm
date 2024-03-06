@@ -162,16 +162,16 @@ type alias NavLink =
 navLinks : List (Html msg)
 navLinks =
     [ navLink
-        { label = "Learn"
-        , link = "/learn"
-        , title = "Learn how to write Gren code"
-        }
-    , navLink
         { label = "Install"
         , link = "/install"
         , title = "Get the compiler setup on your machine"
         }
     , navLink
+        { label = "Learn"
+        , link = "/learn"
+        , title = "Learn how to write Gren code"
+        }
+    , externalNavLink
         { label = "Packages"
         , link = "https://packages.gren-lang.org"
         , title = "Find packages to use in your Gren applications"
@@ -196,6 +196,19 @@ navLink options =
         [ Html.a
             [ Attributes.href options.link
             , Attributes.title options.title
+            ]
+            [ Html.text options.label ]
+        ]
+
+
+externalNavLink : NavLink -> Html msg
+externalNavLink options =
+    Html.li
+        [ Attributes.class "navigation-listitem" ]
+        [ Html.a
+            [ Attributes.href options.link
+            , Attributes.title options.title
+            , Attributes.target "_blank"
             ]
             [ Html.text options.label ]
         ]
