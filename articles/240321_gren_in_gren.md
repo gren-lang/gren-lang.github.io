@@ -34,3 +34,4 @@ Here's a few notable bugs that have been fixed:
 * `Bytes` now work with `==`
 * `Regex.fromString ""` now returns `Nothing`
 * `logBase 10` is now more precise. Notably, `logBase 10 1000` now returns 3, as you'd expect.
+* The `String` API now makes no attempt to concatenate UTF-16 surrogate pairs. Gren strings are now plain old JavaScript strings. This should improve performance, and fix a few bugs, at the cost of not being more like JavaScript.
