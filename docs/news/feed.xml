@@ -3,8 +3,15 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Wed, 06 Mar 2024 21:40:26 +0000</lastBuildDate>
+<lastBuildDate>Thu, 21 Mar 2024 14:39:43 +0000</lastBuildDate>
 <generator>elm-pages</generator>
+<item>
+<title>Gren-in-Gren, and other developments</title>
+<description>The first few lines of a new Gren compiler is being written this week. The goal is to better support upcomming features of the language, as well as being</description>
+<link>https://gren-lang.org/news/240321_gren_in_gren</link>
+<guid>https://gren-lang.org/news/240321_gren_in_gren</guid>
+<pubDate>Thu, 21 Mar 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
 <title>Gren 0.3.0: Source maps</title>
 <description>JavaScript developers have always had access to a powerful debugger for finding bugs in their applications. Since Gren compiles to JavaScript, it&apos;s also possible to use the same tool for debugging Gren applications. The experience isn&apos;t great, however, as you&apos;re forced to debug the JavaScript that the compiler spits out instead of the actual code you wrote.</description>
