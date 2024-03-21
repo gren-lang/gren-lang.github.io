@@ -3,11 +3,11 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Thu, 21 Mar 2024 14:39:43 +0000</lastBuildDate>
+<lastBuildDate>Thu, 21 Mar 2024 15:06:36 +0000</lastBuildDate>
 <generator>elm-pages</generator>
 <item>
 <title>Gren-in-Gren, and other developments</title>
-<description>The first few lines of a new Gren compiler is being written this week. The goal is to better support upcomming features of the language, as well as being</description>
+<description>The first few lines of a new Gren compiler are being written this week. The goal is to better support upcoming features of the language, as well as being</description>
 <link>https://gren-lang.org/news/240321_gren_in_gren</link>
 <guid>https://gren-lang.org/news/240321_gren_in_gren</guid>
 <pubDate>Thu, 21 Mar 2024 00:00:00 GMT</pubDate>
