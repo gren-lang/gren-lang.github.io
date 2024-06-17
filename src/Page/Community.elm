@@ -72,10 +72,10 @@ view _ _ _ =
             [ Html.text "There are several ways to keep tabs on the Gren community." ]
         , Html.p []
             [ Html.a
-                [ Attribute.href "https://gren.zulipchat.com/"
-                , Attribute.title "Join our Zulip"
+                [ Attribute.href "https://discord.gg/J8aaGMfz"
+                , Attribute.title "Join us on Discord"
                 ]
-                [ Html.text "Zulip" ]
+                [ Html.text "Discord" ]
             , Html.text " is the official meeting place for people who are curious about Gren. "
             , Html.text "The core team posts development updates there at regular intervals, and there are "
             , Html.text "channels for people to ask questions."

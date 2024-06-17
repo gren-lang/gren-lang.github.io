@@ -99,12 +99,12 @@ resources =
             ]
         , Html.p []
             [ Html.text "If you need any help along the way, or just want to chat with other people "
-            , Html.text "who're enthusiastic about Gren, then you can join our "
+            , Html.text "who're enthusiastic about Gren, then join our "
             , Html.a
-                [ Attribute.href "https://gren.zulipchat.com/"
-                , Attribute.title "Join our community at Zulip"
+                [ Attribute.href "https://discord.gg/J8aaGMfz"
+                , Attribute.title "Join our community on Discord"
                 ]
-                [ Html.text "Zulip" ]
+                [ Html.text "Discord" ]
             , Html.text "."
             ]
         , Html.p []
