@@ -3,8 +3,7 @@ title: "Gren-in-Gren, and other developments"
 published: "2024-03-21"
 ---
 
-The first few lines of a new Gren compiler are being written this week. The goal is to better support upcoming features of the language, as well as being
-easier to maintain and debug. The hope is also that it will be easier for the community to contribute, as the new compiler is being written in Gren itself.
+The first few lines of a new Gren compiler are being written this week. The goal is to better support upcoming features of the language, as well as being easier to maintain and debug. The hope is also that it will be easier for the community to contribute, as the new compiler is being written in Gren itself.
 
 The goal is to rewrite the compiler incrementally and release each new piece of the compiler as it is ready. You can still expect new features every six months,
 and the first version of the compiler that contains Gren code will be Gren 0.4, scheduled for June.
