@@ -3,11 +3,18 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Mon, 17 Jun 2024 19:08:42 +0000</lastBuildDate>
+<lastBuildDate>Mon, 24 Jun 2024 08:57:16 +0000</lastBuildDate>
 <generator>elm-pages</generator>
 <item>
+<title>Gren 0.4: New foundations</title>
+<description>The core packages have been updated with new functionality and quality-of-life improvements. The compiler has started its transition from Haskell to Gren. The book has seen a face lift, and Zulip has been replaced by Discord.</description>
+<link>https://gren-lang.org/news/240624_gren_04</link>
+<guid>https://gren-lang.org/news/240624_gren_04</guid>
+<pubDate>Mon, 24 Jun 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
 <title>Gren-in-Gren, and other developments</title>
-<description>The first few lines of a new Gren compiler are being written this week. The goal is to better support upcoming features of the language, as well as being</description>
+<description>The first few lines of a new Gren compiler are being written this week. The goal is to better support upcoming features of the language, as well as being easier to maintain and debug. The hope is also that it will be easier for the community to contribute, as the new compiler is being written in Gren itself.</description>
 <link>https://gren-lang.org/news/240321_gren_in_gren</link>
 <guid>https://gren-lang.org/news/240321_gren_in_gren</guid>
 <pubDate>Thu, 21 Mar 2024 00:00:00 GMT</pubDate>
