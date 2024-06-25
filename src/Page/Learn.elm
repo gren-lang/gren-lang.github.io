@@ -101,7 +101,7 @@ resources =
             [ Html.text "If you need any help along the way, or just want to chat with other people "
             , Html.text "who're enthusiastic about Gren, then join our "
             , Html.a
-                [ Attribute.href "https://discord.gg/J8aaGMfz"
+                [ Attribute.href "https://discord.gg/Chb9YB9Vmh"
                 , Attribute.title "Join our community on Discord"
                 ]
                 [ Html.text "Discord" ]

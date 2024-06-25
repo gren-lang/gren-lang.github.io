@@ -72,7 +72,7 @@ view _ _ _ =
             [ Html.text "There are several ways to keep tabs on the Gren community." ]
         , Html.p []
             [ Html.a
-                [ Attribute.href "https://discord.gg/J8aaGMfz"
+                [ Attribute.href "https://discord.gg/Chb9YB9Vmh"
                 , Attribute.title "Join us on Discord"
                 ]
                 [ Html.text "Discord" ]
