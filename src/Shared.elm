@@ -146,7 +146,7 @@ view _ _ model msgMap pageView =
             , Html.footer []
                 [ Html.small
                     [ Attributes.class "container" ]
-                    [ Html.text "Copyright © 2023, The Gren Contributors" ]
+                    [ Html.text "Copyright © 2022 - present, The Gren Contributors" ]
                 ]
             ]
     }
