@@ -3,8 +3,15 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Wed, 24 Jul 2024 07:52:43 +0000</lastBuildDate>
+<lastBuildDate>Mon, 19 Aug 2024 09:32:40 +0000</lastBuildDate>
 <generator>elm-pages</generator>
+<item>
+<title>Upcoming language changes</title>
+<description>Every time Gren gets a bit of attention, as it recently did with the release in June, someone will notice that Gren began its life as a fork of Elm and ask me to put that in plain writing on the website or the compiler&apos;s README.md.</description>
+<link>https://gren-lang.org/news/240819_upcoming_language_changes</link>
+<guid>https://gren-lang.org/news/240819_upcoming_language_changes</guid>
+<pubDate>Mon, 19 Aug 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
 <title>Announcing the Gren Core Team</title>
 <description>Today we celebrate a significant milestone for the Gren programming language. Gren is no longer developed by a single developer, but by a core team.</description>
