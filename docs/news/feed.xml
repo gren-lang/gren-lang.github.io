@@ -3,8 +3,15 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Mon, 19 Aug 2024 10:57:47 +0000</lastBuildDate>
+<lastBuildDate>Sun, 25 Aug 2024 19:09:01 +0000</lastBuildDate>
 <generator>elm-pages</generator>
+<item>
+<title>Gren 0.4.5: Performance, Debugging, Web Crypto</title>
+<description>New versions of the compiler and core packages are now available. You can expect better performance, improved debugging and more functionality.</description>
+<link>https://gren-lang.org/news/240826_gren_045</link>
+<guid>https://gren-lang.org/news/240826_gren_045</guid>
+<pubDate>Mon, 26 Aug 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
 <title>Upcoming language changes</title>
 <description>Every time Gren gets a bit of attention, as it recently did with the release in June, someone will notice that Gren began its life as a fork of Elm and ask me to put that in plain writing on the website or the compiler&apos;s README.md.</description>
