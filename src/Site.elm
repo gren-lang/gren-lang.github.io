@@ -76,7 +76,7 @@ defaultImage =
 
 subTitle : String -> String
 subTitle title =
-    title ++ " | Gren"
+    title
 
 
 manifest : Data -> Manifest.Config
