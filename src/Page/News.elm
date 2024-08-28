@@ -87,7 +87,7 @@ view _ _ static =
             , Html.text "."
             ]
         , Html.p []
-            [ Html.text "For more news regarding the community, development of Gren"
+            [ Html.text "For more frequent news regarding the community, development of Gren"
             , Html.text " and other things, consider following us on "
             , Html.a
                 [ Attribute.href "https://fosstodon.org/@gren_lang"

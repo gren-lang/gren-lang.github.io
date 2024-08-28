@@ -68,44 +68,22 @@ view _ _ _ =
         [ Html.h3 []
             [ Html.text "Install" ]
         , Html.p []
-            [ Html.text "The latest version of the Gren compiler is 0.3.0 ("
+            [ Html.text "The latest version of the Gren compiler is 0.4.5 ("
             , Html.a
-                [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.3.0"
-                , Attribute.title "Read the changelog for 0.3.0"
+                [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.4.5"
+                , Attribute.title "Read the changelog for Gren 0.4.5"
                 ]
                 [ Html.text "changelog" ]
             , Html.text ")."
             ]
         , Html.p []
-            [ Html.text "There are several ways to install this on your system." ]
-        , Html.p []
-            [ Html.text "If you already have NodeJS and NPM, the fastest way to get Gren is by downloading the "
-            , Html.a
-                [ Attribute.href "https://www.npmjs.com/package/gren-lang"
-                , Attribute.title "Download Gren from NPM"
-                ]
-                [ Html.text "NPM package" ]
-            , Html.text ". "
-            , Html.text "If you do, then you can skip the rest of this document."
+            [ Html.text "The fastest way to install the compiler is through NPM:"
+            ]
+        , Html.pre []
+            [ Html.text " > npm install -g gren-lang"
             ]
         , Html.p []
-            [ Html.text "If you don't have, or prefer not to use, NPM then you can find pre-compiled binaries for Windows, Mac OS and Linux at "
-            , Html.a
-                [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.3.0"
-                , Attribute.title "Download the 0.3.0 compiler from Github"
-                ]
-                [ Html.text "GitHub" ]
-            , Html.text ". "
-            , Html.text "If you're interested in trying out the latest unstable compiler, then you can find builds of the "
-            , Html.a
-                [ Attribute.href "https://github.com/gren-lang/compiler/actions/workflows/releases.yml"
-                , Attribute.title "Download the latest compiler from Github"
-                ]
-                [ Html.text "main branch" ]
-            , Html.text " here as well."
-            ]
-        , Html.p []
-            [ Html.text "If none of these options work for you, then you can always build your own compiler "
+            [ Html.text "If that doesn't work for you, then you can always build your own compiler "
             , Html.a
                 [ Attribute.href "https://github.com/gren-lang/compiler"
                 , Attribute.title "Compile the compiler from source"
@@ -114,20 +92,7 @@ view _ _ _ =
             , Html.text "."
             ]
         , Html.p []
-            [ Html.text "Once you have the binary, you'll need to give it permission to execute and place it somewhere in your PATH. Below is an example for Mac OS:" ]
-        , Html.pre []
-            [ multilineHtmlText """
-              chmod +x gren_mac
-              mv gren_mac /usr/local/bin/gren
-              """
-            ]
-        , Html.p []
-            [ Html.text "You should now be able to execute the "
-            , Html.code [] [ Html.text "gren" ]
-            , Html.text " command and see a friendly greeting."
-            ]
-        , Html.p []
-            [ Html.text "If you haven't done so already, now is the time to "
+            [ Html.text "Once you have the compiler installed on your system, it is time to "
             , Html.a
                 [ Attribute.href "/learn"
                 , Attribute.title "learning resources"
@@ -137,14 +102,3 @@ view _ _ _ =
             ]
         ]
     }
-
-
-multilineHtmlText : String -> Html a
-multilineHtmlText input =
-    input
-        |> String.lines
-        |> List.map String.trim
-        |> List.filter (not << String.isEmpty)
-        |> List.map (\s -> " " ++ s)
-        |> String.join "\n"
-        |> Html.text

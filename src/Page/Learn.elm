@@ -89,13 +89,13 @@ resources =
             , Html.text " to get a better idea on the sort of things you can do."
             ]
         , Html.p []
-            [ Html.text "You can discover, and learn, the core packages and other third party-packes at "
+            [ Html.text "You can read the documentation of the core packages, as well as other third party-packages at "
             , Html.a
                 [ Attribute.href "https://packages.gren-lang.org"
                 , Attribute.title "Gren Packages"
                 ]
                 [ Html.text "packages.gren-lang.org" ]
-            , Html.text ". This should give you a fair idea of everything possible to do with Gren."
+            , Html.text "."
             ]
         , Html.p []
             [ Html.text "If you need any help along the way, or just want to chat with other people "
@@ -106,9 +106,5 @@ resources =
                 ]
                 [ Html.text "Discord" ]
             , Html.text "."
-            ]
-        , Html.p []
-            [ Html.i []
-                [ Html.text "Note: The book is still a work in progress. Large sections are unfinished or simply missing. This will improve in time." ]
             ]
         ]
