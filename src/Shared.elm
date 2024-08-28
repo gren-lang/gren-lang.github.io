@@ -162,6 +162,11 @@ type alias NavLink =
 navLinks : List (Html msg)
 navLinks =
     [ navLink
+        { label = "News"
+        , link = "/news"
+        , title = "Read the latest news from the core team"
+        }
+    , navLink
         { label = "Install"
         , link = "/install"
         , title = "Get the compiler setup on your machine"
@@ -174,17 +179,17 @@ navLinks =
     , externalNavLink
         { label = "Packages"
         , link = "https://packages.gren-lang.org"
-        , title = "Find packages to use in your Gren applications"
+        , title = "Find packages to use in your applications"
         }
     , navLink
         { label = "Community"
         , link = "/community"
         , title = "Ask questions, discuss ideas and contribute in our community"
         }
-    , navLink
-        { label = "News"
-        , link = "/news"
-        , title = "Read the latest news from the core team"
+    , externalNavLink
+        { label = "Sponsor"
+        , link = "https://github.com/sponsors/gren-lang"
+        , title = "Invest in the future of Gren"
         }
     ]
 
