@@ -83,7 +83,22 @@ view _ _ _ =
             [ Html.text " > npm install -g gren-lang"
             ]
         , Html.p []
-            [ Html.text "If that doesn't work for you, then you can always build your own compiler "
+            [ Html.text "It's also possible to use "
+            , Html.a
+                [ Attribute.href "https://asdf-vm.com"
+                , Attribute.title "The asdf runtime manager"
+                ]
+                [ Html.text "asdf" ]
+            , Html.text " with the "
+            , Html.a
+                [ Attribute.href "https://github.com/eberfreitas/asdf-gren"
+                , Attribute.title "Gren plugin for asdf"
+                ]
+                [ Html.text "asdf-gren" ]
+            , Html.text " plugin."
+            ]
+        , Html.p []
+            [ Html.text "If none of these work for you, then you can always build your own compiler "
             , Html.a
                 [ Attribute.href "https://github.com/gren-lang/compiler"
                 , Attribute.title "Compile the compiler from source"
