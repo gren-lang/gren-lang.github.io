@@ -3,7 +3,7 @@ module Page.Install exposing (Data, Model, Msg, page)
 import DataSource exposing (DataSource)
 import Head
 import Head.Seo as Seo
-import Html exposing (Html)
+import Html
 import Html.Attributes as Attribute
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
@@ -65,46 +65,110 @@ view :
 view _ _ _ =
     { title = Site.subTitle "Install"
     , body =
-        [ Html.h3 []
-            [ Html.text "Install" ]
-        , Html.p []
-            [ Html.text "The latest version of the Gren compiler is 0.5.0 ("
-            , Html.a
-                [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.5.0"
-                , Attribute.title "Read the changelog for Gren 0.5.0"
+        [ Html.article []
+            [ Html.h3 []
+                [ Html.text "Install" ]
+            , Html.p []
+                [ Html.text "The latest version of the Gren compiler is 0.5.0 ("
+                , Html.a
+                    [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.5.0"
+                    , Attribute.title "Read the changelog for Gren 0.5.0"
+                    ]
+                    [ Html.text "changelog" ]
+                , Html.text ")."
                 ]
-                [ Html.text "changelog" ]
-            , Html.text ")."
-            ]
-        , Html.p []
-            [ Html.text "The fastest way to install the compiler is through NPM:"
-            ]
-        , Html.pre []
-            [ Html.text " > npm install -g gren-lang"
-            ]
-        , Html.p []
-            [ Html.text "It's also possible to use "
-            , Html.a
-                [ Attribute.href "https://asdf-vm.com"
-                , Attribute.title "The asdf runtime manager"
+            , Html.p []
+                [ Html.text "The fastest way to install the compiler is through NPM:"
                 ]
-                [ Html.text "asdf" ]
-            , Html.text " with the "
-            , Html.a
-                [ Attribute.href "https://github.com/eberfreitas/asdf-gren"
-                , Attribute.title "Gren plugin for asdf"
+            , Html.pre []
+                [ Html.text " > npm install -g gren-lang"
                 ]
-                [ Html.text "asdf-gren" ]
-            , Html.text " plugin."
+            , Html.p []
+                [ Html.text "It's also possible to use "
+                , Html.a
+                    [ Attribute.href "https://asdf-vm.com"
+                    , Attribute.title "The asdf runtime manager"
+                    ]
+                    [ Html.text "asdf" ]
+                , Html.text " with the "
+                , Html.a
+                    [ Attribute.href "https://github.com/eberfreitas/asdf-gren"
+                    , Attribute.title "Gren plugin for asdf"
+                    ]
+                    [ Html.text "asdf-gren" ]
+                , Html.text " plugin. "
+                , Html.a
+                    [ Attribute.href "https://www.jetify.com/devbox"
+                    , Attribute.title "Devbox package manager"
+                    ]
+                    [ Html.text "devbox" ]
+                , Html.text " and "
+                , Html.a
+                    [ Attribute.href "https://nixos.org"
+                    , Attribute.title "Nix package manager"
+                    ]
+                    [ Html.text "nix" ]
+                , Html.text " support is available with this "
+                , Html.a
+                    [ Attribute.href "https://github.com/gren-lang/nix"
+                    , Attribute.title "nix-flake for Gren"
+                    ]
+                    [ Html.text "nix flake" ]
+                , Html.text "."
+                ]
+            , Html.p []
+                [ Html.text "If none of these work for you, then you can always build your own compiler "
+                , Html.a
+                    [ Attribute.href "https://github.com/gren-lang/compiler"
+                    , Attribute.title "Compile the compiler from source"
+                    ]
+                    [ Html.text "from source" ]
+                , Html.text "."
+                ]
             ]
-        , Html.p []
-            [ Html.text "If none of these work for you, then you can always build your own compiler "
-            , Html.a
-                [ Attribute.href "https://github.com/gren-lang/compiler"
-                , Attribute.title "Compile the compiler from source"
+        , Html.article []
+            [ Html.h3 []
+                [ Html.text "Editor support" ]
+            , Html.p [] [ Html.text "Syntax highlighting is supported in several editors:" ]
+            , Html.ul []
+                [ Html.li []
+                    [ Html.a
+                        [ Attribute.href "https://github.com/MaeBrooks/tree-sitter-gren/tree/main/editors/nvim"
+                        , Attribute.title "Gren support for NeoVim"
+                        ]
+                        [ Html.text "NeoVim" ]
+                    ]
+                , Html.li []
+                    [ Html.a
+                        [ Attribute.href "https://github.com/MaeBrooks/gren-mode"
+                        , Attribute.title "Gren support for Emacs"
+                        ]
+                        [ Html.text "Emacs" ]
+                    ]
+                , Html.li []
+                    [ Html.a
+                        [ Attribute.href "https://github.com/MaeBrooks/tree-sitter-gren/tree/main/editors/helix"
+                        , Attribute.title "Gren support for Helix"
+                        ]
+                        [ Html.text "Helix" ]
+                    ]
+                , Html.li []
+                    [ Html.a
+                        [ Attribute.href "https://github.com/MaeBrooks/tree-sitter-gren/blob/main/editors/zed"
+                        , Attribute.title "Gren support for Zed"
+                        ]
+                        [ Html.text "Zed" ]
+                    ]
                 ]
-                [ Html.text "from source" ]
-            , Html.text "."
+            , Html.p []
+                [ Html.text "Any editor that supports tree-sitter grammars can use "
+                , Html.a
+                    [ Attribute.href "https://github.com/MaeBrooks/tree-sitter-gren"
+                    , Attribute.title "Tree-sitter grammar for Gren"
+                    ]
+                    [ Html.text "tree-sitter-gren" ]
+                , Html.text "."
+                ]
             ]
         ]
     }
