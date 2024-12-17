@@ -98,5 +98,61 @@ view _ _ _ =
             , Html.p []
                 [ Html.text "Gren produces small JavaScript files, and runs surprisingly fast. Applications written in Gren can be both smaller and faster than your average React-based application." ]
             ]
+        , Html.article
+            []
+            [ Html.h3 []
+                [ Html.text "Runs Anywhere" ]
+            , Html.pre []
+                [ Html.code [] 
+                    [ Html.text 
+                        """viewItems = Array String -> String
+viewItems items =
+    items
+        |> Array.sort
+        |> String.join ", "
+"""
+                    ]
+                ]
+            , Html.p []
+                [ Html.text "In the "
+                , Html.a 
+                    [ Attribute.href "https://packages.gren-lang.org/package/gren-lang/browser/version/latest/overview" ]
+                    [ Html.text "browser:" ]
+                ]
+            , Html.pre []
+                [ Html.code [] 
+                    [ Html.text 
+                        """Html.p [] [ Html.text (viewItems model.items) ]"""
+                    ]
+                ]
+            , Html.p []
+                [ Html.text "In the "
+                , Html.a 
+                    [ Attribute.href "https://packages.gren-lang.org/package/gren-lang/node/version/latest/overview" ]
+                    [ Html.text "terminal:" ]
+                ]
+            , Html.pre []
+                [ Html.code [] 
+                    [ Html.text 
+                        """Stream.writeLineAsBytes (viewItems model.items) model.stdout"""
+                    ]
+                ]
+            , Html.p []
+                [ Html.text "On the "
+                , Html.a 
+                    [ Attribute.href "https://packages.gren-lang.org/package/gren-lang/node/version/latest/module/HttpServer" ]
+                    [ Html.text "server:" ]
+                ]
+            , Html.pre []
+                [ Html.code [] 
+                    [ Html.text 
+                        """response
+    |> Response.setHeader "Content-type" "text/csv"
+    |> Response.setBody (viewItems model.items)
+    |> Response.send
+"""
+                    ]
+                ]
+            ]
         ]
     }
