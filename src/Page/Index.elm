@@ -85,22 +85,6 @@ view _ _ _ =
         , Html.article
             []
             [ Html.h3 []
-                [ Html.text "Compiler as an assistant" ]
-            , Html.p []
-                [ Html.text "Since side effects and error handling is represented in Gren's type system, the compiler can catch a lot of errors which are usually only discovered when the program is running in other languages." ]
-            , Html.p []
-                [ Html.text "In Gren, a lot of time has been invested in how error messages are presented to you, so that the compiler feels more like a helpful assistant." ]
-            ]
-        , Html.article
-            []
-            [ Html.h3 []
-                [ Html.text "Efficiency" ]
-            , Html.p []
-                [ Html.text "Gren produces small JavaScript files, and runs surprisingly fast. Applications written in Gren can be both smaller and faster than your average React-based application." ]
-            ]
-        , Html.article
-            []
-            [ Html.h3 []
                 [ Html.text "Runs Anywhere" ]
             , Html.pre []
                 [ Html.code [] 
@@ -153,6 +137,22 @@ viewItems items =
 """
                     ]
                 ]
+            ]
+        , Html.article
+            []
+            [ Html.h3 []
+                [ Html.text "Compiler as an assistant" ]
+            , Html.p []
+                [ Html.text "Since side effects and error handling is represented in Gren's type system, the compiler can catch a lot of errors which are usually only discovered when the program is running in other languages." ]
+            , Html.p []
+                [ Html.text "In Gren, a lot of time has been invested in how error messages are presented to you, so that the compiler feels more like a helpful assistant." ]
+            ]
+        , Html.article
+            []
+            [ Html.h3 []
+                [ Html.text "Efficiency" ]
+            , Html.p []
+                [ Html.text "Gren produces small JavaScript files, and runs surprisingly fast. Applications written in Gren can be both smaller and faster than your average React-based application." ]
             ]
         ]
     }
