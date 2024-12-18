@@ -151,7 +151,7 @@ viewItems items =
                     [ Html.span
                         [ Attribute.style "color" "rgb(36, 163, 175)" ]
                         [ Html.text "-- TYPE MISMATCH ------------------------------------------------- src/Main.gren\n\n" ]
-                    , Html.text " The 1st argument to `viewItems` is not what I expect:\n\n14|    Html.text (\"Item IDs: \" ++ (viewItems [1, 2, 3]))\n"
+                    , Html.text "The 1st argument to `viewItems` is not what I expect:\n\n14|    Html.text (\"Item IDs: \" ++ (viewItems [1, 2, 3]))\n"
                     , Html.span
                         [ Attribute.style "color" "rgb(194, 54, 33)" ]
                         [ Html.text <| (String.repeat 45 " ") ++ "^^^^^^^^^\n" ]
