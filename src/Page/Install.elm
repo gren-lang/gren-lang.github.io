@@ -69,13 +69,7 @@ view _ _ _ =
             [ Html.h3 []
                 [ Html.text "Install" ]
             , Html.p []
-                [ Html.text "The latest version of the Gren compiler is 0.5.0 ("
-                , Html.a
-                    [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.5.0"
-                    , Attribute.title "Read the changelog for Gren 0.5.0"
-                    ]
-                    [ Html.text "changelog" ]
-                , Html.text ")."
+                [ Html.text "The latest version of the Gren compiler is 0.5.2."
                 ]
             , Html.p []
                 [ Html.text "The fastest way to install the compiler is through NPM:"
