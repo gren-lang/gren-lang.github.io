@@ -188,8 +188,8 @@ navLinks =
         }
     , externalNavLink
         { label = "Sponsor"
-        , link = "https://github.com/sponsors/gren-lang"
-        , title = "Invest in the future of Gren"
+        , link = "https://ko-fi.com/gren"
+        , title = "Support the development of Gren"
         }
     ]
 
