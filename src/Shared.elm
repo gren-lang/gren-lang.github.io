@@ -191,6 +191,11 @@ navLinks =
         , link = "https://ko-fi.com/gren"
         , title = "Support the development of Gren"
         }
+    , externalNavLink
+        { label = "Shop"
+        , link = "https://www.etsy.com/shop/GrenProgramming?ref=gren-lang-dot-org"
+        , title = "Buy merch to support the development of Gren"
+        }
     ]
 
 
