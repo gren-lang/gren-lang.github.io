@@ -69,7 +69,7 @@ view _ _ _ =
             [ Html.h3 []
                 [ Html.text "Install" ]
             , Html.p []
-                [ Html.text "The latest version of the Gren compiler is 0.5.3."
+                [ Html.text "The latest version of the Gren compiler is 0.6.0."
                 ]
             , Html.p []
                 [ Html.text "The fastest way to install the compiler is through NPM:"
@@ -79,18 +79,6 @@ view _ _ _ =
                 ]
             , Html.p []
                 [ Html.text "It's also possible to use "
-                , Html.a
-                    [ Attribute.href "https://asdf-vm.com"
-                    , Attribute.title "The asdf runtime manager"
-                    ]
-                    [ Html.text "asdf" ]
-                , Html.text " with the "
-                , Html.a
-                    [ Attribute.href "https://github.com/eberfreitas/asdf-gren"
-                    , Attribute.title "Gren plugin for asdf"
-                    ]
-                    [ Html.text "asdf-gren" ]
-                , Html.text " plugin. "
                 , Html.a
                     [ Attribute.href "https://www.jetify.com/devbox"
                     , Attribute.title "Devbox package manager"
@@ -102,7 +90,7 @@ view _ _ _ =
                     , Attribute.title "Nix package manager"
                     ]
                     [ Html.text "nix" ]
-                , Html.text " support is available with this "
+                , Html.text " with this "
                 , Html.a
                     [ Attribute.href "https://github.com/gren-lang/nix"
                     , Attribute.title "nix-flake for Gren"
@@ -140,11 +128,7 @@ view _ _ _ =
                         [ Html.text "Emacs" ]
                     ]
                 , Html.li []
-                    [ Html.a
-                        [ Attribute.href "https://github.com/MaeBrooks/tree-sitter-gren/tree/main/editors/helix"
-                        , Attribute.title "Gren support for Helix"
-                        ]
-                        [ Html.text "Helix" ]
+                    [ Html.text "Helix (built-in)"
                     ]
                 , Html.li []
                     [ Html.a
