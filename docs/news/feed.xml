@@ -3,8 +3,15 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Tue, 24 Jun 2025 08:17:22 +0000</lastBuildDate>
+<lastBuildDate>Mon, 21 Jul 2025 10:57:55 +0000</lastBuildDate>
 <generator>elm-pages</generator>
+<item>
+<title>Gren 25S: Easier interop, concurrent tasks and zero-install packages</title>
+<description>A new version of the Gren programming language is now available! There are no syntax changes in this release, but there are still major features to talk about. Task ports simplify interop with JavaScript. Tasks now run concurrently. Packages can now easily be committed to version control, and the compiler now let you run helper programs defined in packages.</description>
+<link>https://gren-lang.org/news/250721_gren_25s</link>
+<guid>https://gren-lang.org/news/250721_gren_25s</guid>
+<pubDate>Mon, 21 Jul 2025 00:00:00 GMT</pubDate>
+</item>
 <item>
 <title>Gren 24W: Streams, static executables and the compiler as a package</title>
 <description>A new version of the Gren programming language is now available. There are some changes in syntax, an option for compiling to a static executable, a rewrite of the Stream and String modules and parts of the compiler are now available in package form.</description>
