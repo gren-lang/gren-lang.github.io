@@ -69,34 +69,36 @@ view _ _ _ =
             [ Html.h3 []
                 [ Html.text "Install" ]
             , Html.p []
-                [ Html.text "The latest version of the Gren compiler is 0.6.0."
+                [ Html.text "The latest version of the Gren compiler is "
+                , Html.a
+                    [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.6.2"
+                    , Attribute.title "Read the changelog"
+                    ]
+                    [ Html.text "0.6.2" ]
                 ]
             , Html.p []
-                [ Html.text "The fastest way to install the compiler is through NPM:"
+                [ Html.text "You can install the compiler with "
+                , Html.a
+                    [ Attribute.href "https://www.npmjs.com/package/gren-lang"
+                    , Attribute.title "Node package manager"
+                    ]
+                    [ Html.text "npm" ]
+                , Html.text ":"
                 ]
             , Html.pre []
                 [ Html.text " > npm install -g gren-lang"
                 ]
             , Html.p []
-                [ Html.text "It's also possible to use "
+                [ Html.text "Or "
                 , Html.a
-                    [ Attribute.href "https://www.jetify.com/devbox"
-                    , Attribute.title "Devbox package manager"
-                    ]
-                    [ Html.text "devbox" ]
-                , Html.text " and "
-                , Html.a
-                    [ Attribute.href "https://nixos.org"
+                    [ Attribute.href "https://search.nixos.org/packages?channel=unstable&show=gren&from=0&size=50&sort=relevance&type=packages&query=gren"
                     , Attribute.title "Nix package manager"
                     ]
                     [ Html.text "nix" ]
-                , Html.text " with this "
-                , Html.a
-                    [ Attribute.href "https://github.com/gren-lang/nix"
-                    , Attribute.title "nix-flake for Gren"
-                    ]
-                    [ Html.text "nix flake" ]
-                , Html.text "."
+                , Html.text ":"
+                ]
+            , Html.pre []
+                [ Html.text " > nix-shell -p gren"
                 ]
             , Html.p []
                 [ Html.text "If none of these work for you, then you can always build your own compiler "
