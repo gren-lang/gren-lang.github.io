@@ -178,7 +178,18 @@ viewItems items =
             [ Html.h3 []
                 [ Html.text "Efficiency" ]
             , Html.p []
-                [ Html.text "Gren produces small JavaScript files, and runs surprisingly fast. Applications written in Gren can be both smaller and faster than your average React-based application." ]
+                [ Html.text "Gren produces small JavaScript files, and runs surprisingly fast. Applications written in Gren will likely produce smaller JavaScript files than React, without sacrificing performance." ]
+            , Html.a
+                [ Attribute.href "https://github.com/gren-lang/react-elm-gren-performance-comparison"
+                , Attribute.title "Navigate to the benchmark implementation"
+                , Attribute.target "_blank"
+                ]
+                [ Html.img
+                    [ Attribute.src "/benchmark.png"
+                    , Attribute.title "A bar-chart showing that Gren has similar performance when compared to Elm and React"
+                    ]
+                    []
+                ]
             ]
         ]
     }
