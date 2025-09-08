@@ -87,8 +87,8 @@ view _ _ _ =
             [ Html.h3 []
                 [ Html.text "Runs Anywhere" ]
             , Html.pre []
-                [ Html.code [] 
-                    [ Html.text 
+                [ Html.code []
+                    [ Html.text
                         """viewItems : Array String -> String
 viewItems items =
     items
@@ -99,37 +99,37 @@ viewItems items =
                 ]
             , Html.p []
                 [ Html.text "In the "
-                , Html.a 
+                , Html.a
                     [ Attribute.href "https://packages.gren-lang.org/package/gren-lang/browser/version/latest/overview" ]
                     [ Html.text "browser:" ]
                 ]
             , Html.pre []
-                [ Html.code [] 
-                    [ Html.text 
+                [ Html.code []
+                    [ Html.text
                         """Html.p [] [ Html.text (viewItems model.items) ]"""
                     ]
                 ]
             , Html.p []
                 [ Html.text "In the "
-                , Html.a 
+                , Html.a
                     [ Attribute.href "https://packages.gren-lang.org/package/gren-lang/node/version/latest/overview" ]
                     [ Html.text "terminal:" ]
                 ]
             , Html.pre []
-                [ Html.code [] 
-                    [ Html.text 
+                [ Html.code []
+                    [ Html.text
                         """Stream.writeLineAsBytes (viewItems model.items) model.stdout"""
                     ]
                 ]
             , Html.p []
                 [ Html.text "On the "
-                , Html.a 
+                , Html.a
                     [ Attribute.href "https://packages.gren-lang.org/package/gren-lang/node/version/latest/module/HttpServer" ]
                     [ Html.text "server:" ]
                 ]
             , Html.pre []
-                [ Html.code [] 
-                    [ Html.text 
+                [ Html.code []
+                    [ Html.text
                         """response
     |> Response.setHeader "Content-type" "text/csv"
     |> Response.setBody (viewItems model.items)
@@ -154,7 +154,7 @@ viewItems items =
                     , Html.text "The 1st argument to `viewItems` is not what I expect:\n\n14|    \"Item IDs: \" ++ (viewItems [1, 2, 3])\n"
                     , Html.span
                         [ Attribute.style "color" "rgb(194, 54, 33)" ]
-                        [ Html.text <| (String.repeat 34 " ") ++ "^^^^^^^^^\n" ]
+                        [ Html.text <| String.repeat 34 " " ++ "^^^^^^^^^\n" ]
                     , Html.text "This argument is an array of type:\n\n    Array "
                     , Html.span
                         [ Attribute.style "color" "rgb(173, 173, 39)" ]
@@ -166,10 +166,11 @@ viewItems items =
                     , Html.span
                         [ Attribute.style "text-decoration" "underline" ]
                         [ Html.text "Hint" ]
-                    , Html.text ": Try using ", Html.span
+                    , Html.text ": Try using "
+                    , Html.span
                         [ Attribute.style "color" "rgb(40, 187, 28)" ]
                         [ Html.text "String.fromInt" ]
-                    , Html.text " to convert it to a String?" 
+                    , Html.text " to convert it to a String?"
                     ]
                 ]
             ]
@@ -180,13 +181,13 @@ viewItems items =
             , Html.p []
                 [ Html.text "Gren produces small JavaScript files, and runs surprisingly fast. Applications written in Gren will likely produce smaller JavaScript files than React, without sacrificing performance." ]
             , Html.a
-                [ Attribute.href "https://github.com/gren-lang/react-elm-gren-performance-comparison"
+                [ Attribute.href "https://github.com/lustre-labs/benchmark"
                 , Attribute.title "Navigate to the benchmark implementation"
                 , Attribute.target "_blank"
                 ]
                 [ Html.img
                     [ Attribute.src "/benchmark.png"
-                    , Attribute.title "A bar-chart showing that Gren has similar performance when compared to Elm and React"
+                    , Attribute.title "A bar-chart showing that Gren has similar performance to other common frontend frameworks"
                     ]
                     []
                 ]
