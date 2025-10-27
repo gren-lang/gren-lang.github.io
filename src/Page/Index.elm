@@ -143,7 +143,7 @@ viewItems items =
             [ Html.h3 []
                 [ Html.text "Compiler as an assistant" ]
             , Html.p []
-                [ Html.text "Since side effects and error handling is represented in Gren's type system, the compiler can catch a lot of errors which are usually only discovered when the program is running in other languages." ]
+                [ Html.text "Since side effects and error handling is represented in Gren's type system, the compiler can catch a lot of errors which, in other languages, are usually only discovered when the program is running." ]
             , Html.p []
                 [ Html.text "In Gren, a lot of time has been invested in how error messages are presented to you, so that the compiler feels more like a helpful assistant." ]
             , Html.pre []
