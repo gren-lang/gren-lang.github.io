@@ -34,7 +34,7 @@ viewItems items =
     |&gt; Response.setHeader &quot;Content-type&quot; &quot;text/csv&quot;
     |&gt; Response.setBody (viewItems model.items)
     |&gt; Response.send
-</code></pre></article><article><h3>Compiler as an assistant</h3><p>Since side effects and error handling is represented in Gren&#039;s type system, the compiler can catch a lot of errors which are usually only discovered when the program is running in other languages.</p><p>In Gren, a lot of time has been invested in how error messages are presented to you, so that the compiler feels more like a helpful assistant.</p><pre><code><span style="color:rgb(36, 163, 175);">-- TYPE MISMATCH ------------------------------------------------- src/Main.gren
+</code></pre></article><article><h3>Compiler as an assistant</h3><p>Since side effects and error handling is represented in Gren&#039;s type system, the compiler can catch a lot of errors which, in other languages, are usually only discovered when the program is running.</p><p>In Gren, a lot of time has been invested in how error messages are presented to you, so that the compiler feels more like a helpful assistant.</p><pre><code><span style="color:rgb(36, 163, 175);">-- TYPE MISMATCH ------------------------------------------------- src/Main.gren
 
 </span>The 1st argument to `viewItems` is not what I expect:
 
