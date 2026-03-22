@@ -71,10 +71,10 @@ view _ _ _ =
             , Html.p []
                 [ Html.text "The latest version of the Gren compiler is "
                 , Html.a
-                    [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.6.2"
+                    [ Attribute.href "https://github.com/gren-lang/compiler/releases/tag/0.6.4"
                     , Attribute.title "Read the changelog"
                     ]
-                    [ Html.text "0.6.2" ]
+                    [ Html.text "0.6.4" ]
                 ]
             , Html.p []
                 [ Html.text "You can install the compiler with "
