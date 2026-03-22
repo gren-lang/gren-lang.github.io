@@ -10,7 +10,6 @@ import Markdown.Parser
 import Markdown.Renderer
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
-import Pages.Url
 import Shared
 import Site
 import View exposing (View)
@@ -111,7 +110,9 @@ view _ _ static =
                             [ Html.i []
                                 [ Html.text <|
                                     "Gren is a pure functional programmming language that aims to be easy to learn and "
-                                        ++ "to reason about, while remaining powerful and portable enough for real-world use."
+                                        ++ "to reason about, while remaining powerful and portable enough for real-world use. "
+                                        ++ "It tries to answer the question: \"What if Elm supported backend development, as "
+                                        ++ "well as it supports frontend development?\""
                                 ]
                             ]
                         ]
