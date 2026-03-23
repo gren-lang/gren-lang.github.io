@@ -109,10 +109,10 @@ view _ _ static =
                         , Html.p []
                             [ Html.i []
                                 [ Html.text <|
-                                    "Gren is a pure functional programmming language that aims to be easy to learn and "
+                                    "Gren is a pure functional programming language that aims to be easy to learn and "
                                         ++ "to reason about, while remaining powerful and portable enough for real-world use. "
-                                        ++ "It tries to answer the question: \"What if Elm supported backend development, as "
-                                        ++ "well as it supports frontend development?\""
+                                        ++ "Gren has its roots in Elm and shares its goals while continuing to evolve in the "
+                                        ++ "browser, server, and command line."
                                 ]
                             ]
                         ]
