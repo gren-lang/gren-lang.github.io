@@ -3,8 +3,15 @@
 <title>Gren news</title>
 <description>News from the Gren core team</description>
 <link>https://gren-lang.org/news</link>
-<lastBuildDate>Tue, 28 Oct 2025 07:43:21 +0000</lastBuildDate>
+<lastBuildDate>Mon, 23 Mar 2026 11:08:36 +0000</lastBuildDate>
 <generator>elm-pages</generator>
+<item>
+<title>Gren 26.03: Parser improvements</title>
+<description>A new version of the Gren programming language is now available for download. This release is backwards compatible, and brings improvements in parsing Gren code as well as parsers you define on your own.</description>
+<link>https://gren-lang.org/news/260323_gren_26_03</link>
+<guid>https://gren-lang.org/news/260323_gren_26_03</guid>
+<pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
 <title>Gren 25S: Easier interop, concurrent tasks and zero-install packages</title>
 <description>A new version of the Gren programming language is now available! There are no syntax changes in this release, but there are still major features to talk about. Task ports simplify interop with JavaScript. Tasks now run concurrently. Packages can now easily be committed to version control, and the compiler now let you run helper programs defined in packages.</description>
