@@ -94,6 +94,12 @@ view _ _ static =
                 , Attribute.title "Follow us on Mastodon"
                 ]
                 [ Html.text "Mastodon" ]
+            , Html.text " or "
+            , Html.a
+                [ Attribute.href "https://ko-fi.com/gren/posts"
+                , Attribute.title "Follow us on Ko-Fi"
+                ]
+                [ Html.text "Ko-Fi" ]
             , Html.text "."
             ]
         ]
